@@ -1,0 +1,138 @@
+{
+  "devices": [
+    {
+      "id": "FNK0102A",
+      "name": "FNK0102A",
+      "image": "firmware/FNK0102A/FNK0102A.png",
+      "firmwares": [
+        {
+          "id": "Xiaozhi-1.4inch",
+          "name": "Xiaozhi-1.4inch",
+          "versions": [
+            {
+              "id": "v1.0",
+              "name": "v1.0",
+              "manifest_path": "firmware/FNK0102A/firmwares/v1.0/v1.0.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FNK0102H",
+      "name": "FNK0102H",
+      "image": "firmware/FNK0102H/FNK0102H.png",
+      "firmwares": [
+        {
+          "id": "Xiaozhi-3.5inch",
+          "name": "Xiaozhi-3.5inch",
+          "versions": [
+            {
+              "id": "v1.0",
+              "name": "v1.0",
+              "manifest_path": "firmware/FNK0102H/firmwares/v1.0/v1.0.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FNK0103",
+      "name": "FNK0103",
+      "image": "firmware/FNK0103/FNK0103.png",
+      "firmwares": [
+        {
+          "id": "103B",
+          "name": "NerdMiner-FNK0103B (2.8\" ST7789 TN)",
+          "versions": [
+            {
+              "id": "v1.8.3",
+              "name": "v1.8.3",
+              "manifest_path": "firmware/FNK0103/103B/v1.8.3/v1.8.3.json"
+            }
+          ]
+        },
+        {
+          "id": "103F",
+          "name": "NerdMiner-FNK0103F (2.8\" ILI9341 TN)",
+          "versions": [
+            {
+              "id": "v1.8.3",
+              "name": "v1.8.3",
+              "manifest_path": "firmware/FNK0103/103F/v1.8.3/v1.8.3.json"
+            }
+          ]
+        },
+		{
+          "id": "103L",
+          "name": "NerdMiner-FNK0103L (3.2\" ST7789 IPS)",
+          "versions": [
+            {
+              "id": "v1.8.3",
+              "name": "v1.8.3",
+              "manifest_path": "firmware/FNK0103/103L/v1.8.3/v1.8.3.json"
+            }
+          ]
+        },
+		{
+          "id": "103N",
+          "name": "NerdMiner-FNK0103N (3.5\" ST7796 TN)",
+          "versions": [
+            {
+              "id": "v1.8.3",
+              "name": "v1.8.3",
+              "manifest_path": "firmware/FNK0103/103N/v1.8.3/v1.8.3.json"
+            }
+          ]
+        },
+		{
+          "id": "103S",
+          "name": "NerdMiner-FNK0103S (4.0\" ST7796 TN)",
+          "versions": [
+            {
+              "id": "v1.8.3",
+              "name": "v1.8.3",
+              "manifest_path": "firmware/FNK0103/103S/v1.8.3/v1.8.3.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FNK0104",
+      "name": "FNK0104",
+      "image": "firmware/FNK0104/FNK0104.png",
+      "firmwares": [
+        {
+          "id": "ESP32S3_240_320_28",
+          "name": "ESP32S3_240_320_28",
+          "versions": [
+            {
+              "id": "V1.8.3",
+              "name": "V1.8.3",
+              "manifest_path": "firmware/FNK0104/firmwares/V1.8.3/V1.8.3.json"
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "id": "FNK0086",
+      "name": "FNK0086",
+      "image": "firmware/FNK0086/FNK0086.png",
+      "firmwares": [
+        {
+          "id": "ESP32S3_240_320_28",
+          "name": "ESP32S3_240_320_28",
+          "versions": [
+            {
+              "id": "V1.8.3",
+              "name": "V1.8.3",
+              "manifest_path": "firmware/FNK0086/firmwares/V1.8.3/V1.8.3.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

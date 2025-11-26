@@ -1,0 +1,230 @@
+<!-- 
+    作者：Eason-swc
+    版本：v1.0
+    日期：2025/11/19
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 文档元数据 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freenove - Web Flasher</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 Font Awesome 图标库，用于显示各种图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="freenove.ico" type="image/x-icon">
+    <!-- 引入 Xterm.js 终端库的样式文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css">
+</head>
+<body>
+    <!-- 页面头部区域 -->
+    <header>
+        <!-- 品牌Logo和名称 -->
+        <div class="logo">
+            <img src="freenove.ico" alt="Freenove Logo" class="logo-icon">
+            <span>Freenove</span>
+        </div>
+        <!-- 头部右侧内容，包含导航和主题切换 -->
+        <div class="header-right">
+            <!-- 导航菜单 -->
+            <nav>
+                <a href="https://freenove.com/" class="nav-button" target="_blank">Home</a>
+                <a href="https://freenove.com/store" class="nav-button" target="_blank">Store</a>
+                <a href="https://freenove.com/support" class="nav-button" target="_blank">Support</a>
+            </nav>
+            <!-- 主题切换器，用于切换深色/浅色模式 -->
+            <div id="theme-switcher" class="theme-switcher">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面主要内容区域 -->
+    <main>
+        <!-- 英雄区域：主标题和副标题 -->
+        <section class="hero">
+            <h1 class="main-title">Flash directly from the web</h1>
+            <p class="subtitle">Connect your device, select your model and board version, and start flashing immediately. No setup required.</p>
+        </section>
+
+        <!-- 步骤指示器区域：引导用户完成设备、固件、版本选择 -->
+        <section class="stepper">
+            <!-- 步骤1: 选择设备 -->
+            <div id="step-1" class="step active">
+                <div class="step-icon"><i class="fas fa-desktop"></i></div>
+                <div id="select-device-btn" class="step-content step-button">
+                    <span>Select device</span>
+                </div>
+            </div>
+
+            <!-- 步骤2: 选择固件 -->
+            <div id="step-2" class="step">
+                <div class="step-icon"><i class="fas fa-microchip"></i></div>
+                <div class="step-content">
+                    <div class="dropdown-container">
+                        <select id="firmware-select" disabled>
+                            <option value="">Select firmware</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 步骤3: 选择版本 -->
+            <div id="step-3" class="step">
+                <div class="step-icon"><i class="fas fa-code-branch"></i></div>
+                <div class="step-content">
+                    <div class="dropdown-container">
+                        <select id="version-select" disabled>
+                            <option value="">Select version</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 操作区域：包含烧录控制按钮和选项 -->
+        <section class="actions">
+            <div class="controls-grid">
+                <!-- 波特率选择器 -->
+                <div class="baud-rate-selector">
+                    <label for="baud-rate-select">Baud Rate:</label>
+                    <select id="baud-rate-select">
+                        <option value="9600">9600</option>
+                        <option value="115200">115200</option>
+                        <option value="230400">230400</option>
+                        <option value="460800">460800</option>
+                        <option value="921600" selected>921600</option>
+                        <option value="1500000">1500000</option>
+                        <option value="2000000">2000000</option>
+                    </select>
+                </div>
+                <!-- 擦除闪存复选框 -->
+                <div class="erase-checkbox-container">
+                    <input type="checkbox" id="erase-flash-checkbox" name="erase-flash" checked>
+                    <label for="erase-flash-checkbox">Erase Flash</label>
+                </div>
+                <!-- 连接设备按钮 -->
+                <button id="connect-btn" class="action-btn" disabled><i class="fas fa-link"></i> Connect</button>
+                <!-- 烧录固件按钮 -->
+                <button id="flash-btn" class="action-btn" disabled><i class="fas fa-bolt"></i> Flash</button>
+                <!-- 切换控制台显示按钮 -->
+                <button id="toggle-console-btn" class="action-btn"><i class="fas fa-terminal"></i> Open Console</button>
+                <!-- 串口监视器按钮 -->
+                <button id="serial-port-info-btn" class="action-btn" disabled><i class="fas fa-info-circle"></i> Serial Monitor</button>
+            </div>
+        </section>
+
+        <!-- 终端控制台区域，默认隐藏 -->
+        <section class="terminal-section hidden">
+            <div id="terminal-log"></div>
+        </section>
+    </main>
+
+    <!-- 页面底部区域 -->
+    <footer>
+        <!-- 版权信息 -->
+        <div class="footer-copyright">
+            © 2025 Freenove
+            <span style="margin: 0 0.5rem; opacity: 0.5;">|</span>
+            Powered by <a href="https://github.com/espressif/esptool-js" target="_blank" class="footer-link">esptool-js</a>
+        </div>
+        <!-- 社交媒体链接 -->
+        <div class="footer-socials">
+            <a href="https://github.com/Freenove" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.youtube.com/@Freenove" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <!-- 功能说明悬浮组件 -->
+        <!-- <div id="info-widget" class="info-widget"> -->
+            <!-- 状态1：圆形触发按钮 -->
+            <!-- <button id="info-trigger-btn" class="info-trigger-btn" aria-label="Help & Instructions">
+                <i class="fas fa-question"></i>
+            </button> -->
+
+            <!-- 状态2：展开的文本框 -->
+            <!-- <div class="info-card">
+                <div class="info-header">
+                    <h3>How to use</h3>
+                    <button id="info-close-btn" class="info-close-btn">&times;</button>
+                </div>
+                <div class="info-body">
+                    <p><strong>1. 使用说明:</strong> 选择合适的设备</p>
+                    <p><strong>2. Connect:</strong> Click "Connect" and select the USB port.</p>
+                    <p><strong>3. Flash:</strong> Pick the firmware version and click "Flash".</p>
+                    <p class="note">Note: 烧录完后需要手动复位.</p>
+                </div>
+            </div>
+        </div> -->
+    </footer>
+
+    <!-- 设备选择模态框 -->
+    <div id="device-modal" class="modal-overlay">
+        <div class="modal-content">
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h2>Select device</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <!-- 模态框主体内容 -->
+            <div class="modal-main">
+                <!-- 左侧导航箭头 -->
+                <button class="modal-nav-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+                <!-- 设备轮播区域 -->
+                <div class="device-carousel">
+                    <!-- 设备列表，由JavaScript动态注入 -->
+                    <div id="device-list" class="device-list">
+                        <!-- Device items will be injected by JS -->
+                    </div>
+                </div>
+                <!-- 右侧导航箭头 -->
+                <button class="modal-nav-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 串口监视器模态框 -->
+    <div id="serial-info-modal" class="modal-overlay">
+        <div class="modal-content serial-monitor-modal-content">
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h2>Serial Monitor</h2>
+                <button id="close-serial-info-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <!-- 模态框主体内容 -->
+            <div class="modal-main">
+                <div id="serial-info-content" class="serial-info-content">
+                    <!-- 串口监视器波特率选择器 -->
+                    <div class="baud-rate-selector">
+                        <label for="modal-baud-rate-select">Baud Rate:</label>
+                        <select id="modal-baud-rate-select">
+                            <option value="9600">9600</option>
+                            <option value="115200" selected>115200</option>
+                            <option value="230400">230400</option>
+                            <option value="460800">460800</option>
+                            <option value="921600">921600</option>
+                            <option value="1500000">1500000</option>
+                            <option value="2000000">2000000</option>
+                        </select>
+                        <!-- 启动/停止监视按钮 -->
+                        <button id="toggle-monitor-btn" class="action-btn small-btn">Start Monitor</button>
+                    </div>
+                    <!-- 串口监视器终端显示区域 -->
+                    <div id="serial-monitor-terminal" class="serial-monitor-terminal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 引入第三方JavaScript库 -->
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
+    <!-- 引入esptool-js集成脚本，处理与ESP设备的通信逻辑 -->
+    <script type="module" src="esptool-integration.js"></script>
+    <!-- 引入主应用脚本，处理用户界面交互 -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

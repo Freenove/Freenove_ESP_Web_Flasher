@@ -1,0 +1,788 @@
+/*
+    作者：Eason-swc
+    版本：v1.0
+    日期：2025/11/19
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+/* 全局CSS变量定义 */
+:root {
+    --background-color: #121212; /* 应用程序背景颜色 (深色模式) */
+    --primary-text-color: #FFFFFF; /* 主要文本颜色 (深色模式) */
+    --secondary-text-color: #B3B3B3; /* 次要文本颜色 (深色模式) */
+    --surface-color: #1E1E1E; /* 表面/卡片背景颜色 (深色模式) */
+    --primary-accent-color: #FFFFFF; /* 主要强调颜色 (深色模式) */
+    --primary-accent-hover: #CCCCCC; /* 主要强调颜色悬停状态 (深色模式) */
+    --disabled-color: #333333; /* 禁用状态的颜色 (深色模式) */
+    --disabled-text-color: #666666; /* 禁用状态的文本颜色 (深色模式) */
+    --border-color: #2A2A2A; /* 边框颜色 (深色模式) */
+    --font-main: 'Inter', sans-serif; /* 主要字体 */
+    --modal-backdrop-color: rgba(0, 0, 0, 0.5); /* 模态框背景遮罩颜色 */
+    --modal-surface-color: rgba(30, 30, 30, 0.8); /* 模态框表面颜色 */
+}
+
+/* 浅色模式下的CSS变量覆盖 */
+body.light-mode {
+    --background-color: #F0F2F5; /* 应用程序背景颜色 (浅色模式) */
+    --primary-text-color: #000000; /* 主要文本颜色 (浅色模式) */
+    --secondary-text-color: #555555; /* 次要文本颜色 (浅色模式) */
+    --surface-color: #FFFFFF; /* 表面/卡片背景颜色 (浅色模式) */
+    --primary-accent-color: #000000; /* 主要强调颜色 (浅色模式) */
+    --primary-accent-hover: #333333; /* 主要强调颜色悬停状态 (浅色模式) */
+    --disabled-color: #E0E0E0; /* 禁用状态的颜色 (浅色模式) */
+    --disabled-text-color: #AAAAAA; /* 禁用状态的文本颜色 (浅色模式) */
+    --border-color: #DDDDDD; /* 边框颜色 (浅色模式) */
+    --modal-backdrop-color: rgba(255, 255, 255, 0.5); /* 模态框背景遮罩颜色 (浅色模式) */
+    --modal-surface-color: rgba(245, 245, 245, 0.8); /* 模态框表面颜色 (浅色模式) */
+}
+
+/* --- 基础样式与布局 --- */
+body {
+    background-color: var(--background-color); /* 应用背景颜色 */
+    color: var(--primary-text-color); /* 应用主要文本颜色 */
+    font-family: var(--font-main); /* 应用主要字体 */
+    margin: 0; /* 移除默认外边距 */
+    padding: 0; /* 移除默认内边距 */
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 垂直方向排列子元素 */
+    align-items: center; /* 子元素水平居中 */
+    min-height: 100vh; /* 最小高度为视口高度 */
+    text-align: center; /* 文本水平居中 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 背景色和文本颜色过渡动画 */
+}
+
+main {
+    max-width: 2000px; /* 主内容区域最大宽度 */
+    width: 100%; /* 宽度占满父容器 */
+    padding: 1.5rem 2rem 1rem; /* 内边距调整 */
+    box-sizing: border-box; /* 盒模型为边框盒 */
+    flex-grow: 1; /* 占据可用空间 */
+}
+
+/* --- 页面头部样式 --- */
+header {
+    width: 100%; /* 宽度占满父容器 */
+    max-width: 2000px; /* 最大宽度 */
+    padding: 1.5rem 5rem; /* 内边距调整 */
+    box-sizing: border-box; /* 盒模型为边框盒 */
+    display: flex; /* 使用Flex布局 */
+    justify-content: space-between; /* 子元素两端对齐 */
+    align-items: center; /* 子元素垂直居中 */
+}
+
+.hero {
+    margin-top: 0rem; /* 顶部外边距 */
+}
+
+.logo {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 子元素垂直居中 */
+    gap: 0.75rem; /* 子元素间距 */
+    font-size: 2rem; /* 字体大小 */
+    font-weight: 900; /* 字体粗细 */
+}
+
+.logo-icon {
+    height: 32px; /* Logo图标高度 */
+    width: 32px; /* Logo图标宽度 */
+}
+
+.header-right {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 子元素垂直居中 */
+    gap: 1.5rem; /* 子元素间距 */
+}
+
+nav {
+    display: flex; /* 使用Flex布局 */
+    gap: 0.5rem; /* 子元素间距 */
+}
+
+.nav-button {
+    color: var(--secondary-text-color); /* 导航按钮文本颜色 */
+    text-decoration: none; /* 移除下划线 */
+    font-weight: 500; /* 字体粗细 */
+    padding: 0.5rem 1rem; /* 内边距 */
+    border-radius: 8px; /* 圆角 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 颜色和背景色过渡动画 */
+}
+
+.nav-button:hover {
+    background-color: var(--surface-color); /* 悬停背景颜色 */
+    color: var(--primary-text-color); /* 悬停文本颜色 */
+}
+
+.theme-switcher {
+    cursor: pointer; /* 鼠标指针样式 */
+    font-size: 1.5rem; /* 字体大小 */
+    color: var(--secondary-text-color); /* 文本颜色 */
+    transition: color 0.3s ease, transform 0.3s ease; /* 颜色和形变过渡动画 */
+}
+
+.theme-switcher:hover {
+    color: var(--primary-text-color); /* 悬停文本颜色 */
+    transform: scale(1.1) rotate(15deg); /* 悬停形变效果 */
+}
+
+
+/* --- 排版与通用元素 --- */
+.main-title {
+    font-size: 4rem; /* 字体大小 */
+    font-weight: 900; /* 字体粗细 */
+    margin: 0; /* 移除外边距 */
+    letter-spacing: -2px; /* 字间距 */
+}
+
+.subtitle {
+    font-size: 1.25rem; /* 字体大小 */
+    color: var(--secondary-text-color); /* 文本颜色 */
+    max-width: 600px; /* 最大宽度 */
+    margin: 1rem auto 4rem; /* 外边距 */
+    line-height: 1.6; /* 行高 */
+}
+
+/* --- 步骤指示器 (垂直内部布局) --- */
+.stepper {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: row; /* 水平方向排列子元素 */
+    gap: 10rem; /* 子元素间距 */
+    margin: 4rem 0; /* 上下外边距 */
+    justify-content: center; /* 子元素水平居中 */
+    animation: fadeInUp 0.8s ease-out forwards; /* 动画效果 */
+    opacity: 0; /* 初始透明度 */
+    animation-delay: 0.3s; /* 动画延迟 */
+}
+
+.step {
+    background-color: var(--surface-color); /* 背景颜色 */
+    border: 1px solid var(--border-color); /* 边框样式 */
+    border-radius: 12px; /* 圆角 */
+    padding: 1.5rem; /* 内边距 */
+    flex: 1; /* 占据可用空间 */
+    max-width: 300px; /* 最大宽度 */
+    box-sizing: border-box; /* 盒模型为边框盒 */
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 垂直方向排列子元素 */
+    align-items: center; /* 子元素水平居中 */
+    gap: 1.5rem; /* 子元素间距 */
+    transition: all 0.4s ease; /* 所有属性过渡动画 */
+}
+
+.step:not(.active) {
+    filter: grayscale(1); /* 非激活状态下置灰 */
+    opacity: 0.5; /* 非激活状态下透明度 */
+}
+
+.step.active {
+    filter: grayscale(0); /* 激活状态下去除置灰 */
+    opacity: 1; /* 激活状态下透明度 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 激活状态下阴影 */
+}
+
+.step-icon {
+    font-size: 3.5rem; /* 图标字体大小 */
+    color: var(--secondary-text-color); /* 图标颜色 */
+    transition: color 0.3s ease; /* 颜色过渡动画 */
+    flex-shrink: 0; /* 不缩小 */
+}
+
+.step.active .step-icon {
+    color: var(--primary-text-color); /* 激活状态下图标颜色 */
+}
+
+.step-content {
+    width: 100%; /* 宽度占满父容器 */
+    text-align: center; /* 文本水平居中 */
+}
+
+.step-button {
+    padding: 0.75rem 1rem; /* 内边距 */
+    border-radius: 8px; /* 圆角 */
+    font-size: 1rem; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 颜色和背景色过渡动画 */
+    width: 100%; /* 宽度占满父容器 */
+    box-sizing: border-box; /* 盒模型为边框盒 */
+    text-align: center; /* 文本水平居中 */
+    background-color: var(--primary-accent-color); /* 背景颜色 */
+    color: var(--background-color); /* 文本颜色 */
+    font-weight: 700; /* 字体粗细 */
+}
+
+.step.active .step-button:hover {
+    background-color: var(--primary-accent-hover); /* 悬停背景颜色 */
+    color: var(--primary-text-color); /* 悬停文本颜色 */
+}
+body.light-mode .step.active .step-button:hover {
+    color: var(--background-color); /* 浅色模式下悬停文本颜色 */
+}
+
+.step-button.selected {
+    background-color: var(--primary-accent-color); /* 选中状态背景颜色 */
+    color: var(--background-color); /* 选中状态文本颜色 */
+    cursor: default; /* 鼠标指针样式 */
+    text-align: center; /* 文本水平居中 */
+    padding: 0.75rem 1rem; /* 内边距 */
+}
+.step.active .step-button.selected:hover {
+    background-color: var(--primary-accent-color); /* 选中状态悬停背景颜色 */
+}
+
+
+/* --- 下拉选择框样式 --- */
+select {
+    width: 100%; /* 宽度占满父容器 */
+    background-color: var(--disabled-color); /* 背景颜色 */
+    color: var(--disabled-text-color); /* 文本颜色 */
+    border: 1px solid var(--border-color); /* 边框样式 */
+    border-radius: 8px; /* 圆角 */
+    padding: 0.75rem 2.5rem 0.75rem 1rem; /* 内边距 */
+    font-size: 1rem; /* 字体大小 */
+    font-family: var(--font-main); /* 字体 */
+    -webkit-appearance: none; /* 移除默认外观 */
+    appearance: none; /* 移除默认外观 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23666666' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"); /* 自定义下拉箭头图标 (深色模式禁用) */
+    background-repeat: no-repeat; /* 不重复背景图片 */
+    background-position: right 0.75rem center; /* 背景图片位置 */
+    cursor: not-allowed; /* 鼠标指针样式 */
+    transition: all 0.3s ease; /* 所有属性过渡动画 */
+}
+
+select:not(:disabled) {
+    background-color: var(--surface-color); /* 非禁用状态背景颜色 */
+    color: var(--primary-text-color); /* 非禁用状态文本颜色 */
+    border-color: var(--primary-text-color); /* 非禁用状态边框颜色 */
+    cursor: pointer; /* 鼠标指针样式 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23FFFFFF' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"); /* 自定义下拉箭头图标 (深色模式非禁用) */
+}
+body.light-mode select:not(:disabled) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23000000' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"); /* 自定义下拉箭头图标 (浅色模式非禁用) */
+}
+
+/* --- 模态框样式 --- */
+.modal-overlay {
+    position: fixed; /* 固定定位 */
+    top: 0; left: 0; /* 铺满整个视口 */
+    width: 100%; height: 100%; /* 宽度和高度占满 */
+    background-color: var(--modal-backdrop-color); /* 背景遮罩颜色 */
+    backdrop-filter: blur(10px); /* 背景模糊效果 */
+    -webkit-backdrop-filter: blur(10px); /* 兼容性前缀 */
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 子元素水平居中 */
+    align-items: center; /* 子元素垂直居中 */
+    z-index: 1000; /* 层级 */
+    opacity: 0; /* 初始透明度 */
+    pointer-events: none; /* 初始状态不响应鼠标事件 */
+    transition: opacity 0.3s ease; /* 透明度过渡动画 */
+}
+
+.modal-overlay.is-visible {
+    opacity: 1; /* 可见状态透明度 */
+    pointer-events: auto; /* 可见状态响应鼠标事件 */
+}
+
+.modal-content {
+    background-color: var(--modal-surface-color); /* 背景颜色 */
+    border-radius: 12px; /* 圆角 */
+    width: 90%; /* 宽度占父容器90% */
+    max-width: 1200px; /* 设备选择模态框的最大宽度 */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* 阴影效果 */
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 垂直方向排列子元素 */
+    transform: scale(0.95); /* 初始形变效果 (略微缩小) */
+    transition: transform 0.3s ease; /* 形变过渡动画 */
+}
+
+.serial-monitor-modal-content {
+    max-width: 1400px; /* 串口监视器模态框的最大宽度 */
+    min-height: 70vh; /* 最小高度 */
+    max-height: 90vh; /* 最大高度 */
+}
+
+.modal-overlay.is-visible .modal-content {
+    transform: scale(1); /* 可见状态形变效果 (恢复原大小) */
+}
+
+.modal-header {
+    display: flex; /* 使用Flex布局 */
+    justify-content: space-between; /* 子元素两端对齐 */
+    align-items: center; /* 子元素垂直居中 */
+    padding: 1.5rem 2rem; /* 内边距 */
+    border-bottom: 1px solid var(--border-color); /* 底部边框 */
+}
+
+.modal-header h2 { margin: 0; font-size: 1.5rem; font-weight: 700; } /* 模态框标题样式 */
+
+.close-btn {
+    background: none; border: none; color: var(--secondary-text-color); /* 背景透明，无边框，文本颜色 */
+    font-size: 2rem; line-height: 1; cursor: pointer; /* 字体大小，行高，鼠标指针 */
+    transition: color 0.2s ease, transform 0.2s ease; /* 颜色和形变过渡动画 */
+}
+.close-btn:hover { color: var(--primary-text-color); transform: rotate(90deg); } /* 悬停效果 */
+
+.modal-main {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 子元素垂直居中 */
+    padding: 0 2rem; /* 内边距 */
+    flex-grow: 1; /* 占据可用空间 */
+}
+
+/* 串口监视器模态框主体内容的特定样式 */
+.serial-info-modal .modal-main {
+    flex-direction: column; /* 垂直方向排列子元素 */
+    padding: 0; /* 移除内边距 */
+}
+
+.modal-nav-arrow {
+    background: none; border: none; color: var(--secondary-text-color); /* 背景透明，无边框，文本颜色 */
+    font-size: 2rem; cursor: pointer; padding: 0 2rem; /* 字体大小，鼠标指针，内边距 */
+    transition: color 0.2s ease, transform 0.2s ease; z-index: 10; /* 颜色和形变过渡动画，层级 */
+}
+.modal-nav-arrow:hover { color: var(--primary-text-color); transform: scale(1.2); } /* 悬停效果 */
+
+.device-carousel { flex-grow: 1; overflow: hidden; } /* 设备轮播区域，占据可用空间并隐藏溢出 */
+
+.device-list {
+    display: flex; gap: 3rem; padding: 2rem; /* Flex布局，子元素间距，内边距 */
+    overflow-x: auto; scroll-behavior: smooth; /* 允许水平滚动，平滑滚动 */
+    scrollbar-width: none; -ms-overflow-style: none; /* 隐藏滚动条 (Firefox, IE) */
+}
+.device-list::-webkit-scrollbar { display: none; } /* 隐藏滚动条 (Webkit) */
+
+.device-item {
+    display: flex; flex-direction: column; align-items: center; /* Flex布局，垂直排列，水平居中 */
+    gap: 1.5rem; cursor: pointer; transition: transform 0.3s ease; /* 子元素间距，鼠标指针，形变过渡 */
+}
+.device-item:hover { transform: scale(1.05); } /* 悬停放大效果 */
+
+.device-image-wrapper {
+    background-color: var(--surface-color); /* 背景颜色 */
+    border-radius: 8px; /* 圆角 */
+    padding: 1rem; /* 内边距 */
+}
+
+.device-image-placeholder {
+    width: 120px; height: 100px; /* 宽度和高度 */
+    object-fit: contain; /* 图片内容适应 */
+    transition: all 0.3s ease-out; /* 所有属性过渡动画 */
+}
+
+.device-name {
+    font-size: 1.1rem; font-weight: 500; /* 字体大小和粗细 */
+    color: var(--secondary-text-color); transition: color 0.3s ease; /* 颜色过渡动画 */
+}
+.device-item:hover .device-name { color: var(--primary-text-color); } /* 悬停文本颜色 */
+
+/* --- 操作按钮与日志区域 --- */
+.actions {
+    margin: 2rem 0; /* 上下外边距 */
+    animation: fadeInUp 0.8s ease-out forwards; /* 动画效果 */
+    opacity: 0; /* 初始透明度 */
+    animation-delay: 0.6s; /* 动画延迟 */
+}
+
+.controls-grid {
+    display: grid; /* 使用Grid布局 */
+    grid-template-columns: 1fr 1fr; /* 两列等宽 */
+    gap: 3rem 5rem; /* 行间距和列间距 */
+    max-width: 950px; /* 最大宽度 */
+    margin: 0 auto; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.controls-grid .baud-rate-selector {
+    grid-column: 1 / 2; /* 放置在第一列 */
+    justify-self: end; /* 自身靠右对齐 */
+}
+
+.controls-grid .erase-checkbox-container {
+    grid-column: 2 / 3; /* 放置在第二列 */
+    justify-self: start; /* 自身靠左对齐 */
+}
+
+.action-btn {
+    border: none; /* 无边框 */
+    border-radius: 8px; /* 圆角 */
+    padding: 0.8rem 1.5rem; /* 内边距 */
+    font-size: 1.1rem; font-weight: 700; /* 字体大小和粗细 */
+    transition: all 0.3s ease; /* 所有属性过渡动画 */
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 子元素垂直居中 */
+    justify-content: center; /* 子元素水平居中 */
+    gap: 0.5rem; /* 子元素间距 */
+    width: 100%; /* 宽度占满 */
+    box-sizing: border-box; /* 盒模型为边框盒 */
+}
+
+.action-btn.small-btn {
+    width: auto; /* 宽度自适应 */
+    padding: 0.6rem 1.5rem; /* 内边距 */
+    font-size: 0.9rem; /* 字体大小 */
+}
+
+.action-btn:disabled {
+    background-color: var(--disabled-color); /* 禁用状态背景颜色 */
+    color: var(--disabled-text-color); /* 禁用状态文本颜色 */
+    cursor: not-allowed; /* 鼠标指针样式 */
+}
+
+.action-btn:not(:disabled) {
+    background-color: var(--primary-accent-color); /* 非禁用状态背景颜色 */
+    color: var(--background-color); /* 非禁用状态文本颜色 */
+    cursor: pointer; /* 鼠标指针样式 */
+}
+
+.action-btn:not(:disabled):hover {
+    background-color: var(--primary-accent-hover); /* 悬停背景颜色 */
+    color: var(--primary-text-color); /* 悬停文本颜色 */
+    transform: translateY(-3px); /* 悬停上移效果 */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* 悬停阴影效果 */
+}
+
+body.light-mode .action-btn:not(:disabled):hover {
+    color: var(--background-color); /* 浅色模式下悬停文本颜色 */
+}
+
+.baud-rate-selector {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 子元素垂直居中 */
+    gap: 10px; /* 子元素间距 */
+}
+
+.baud-rate-selector label {
+    font-size: 1rem; font-weight: 500; /* 字体大小和粗细 */
+    color: var(--secondary-text-color); /* 文本颜色 */
+}
+
+.baud-rate-selector select {
+    width: auto; /* 宽度自适应 */
+    min-width: 150px; /* 最小宽度 */
+}
+
+.erase-checkbox-container {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 子元素垂直居中 */
+    gap: 8px; /* 子元素间距 */
+    color: var(--secondary-text-color); /* 文本颜色 */
+}
+
+#erase-flash-checkbox {
+    width: 18px; height: 18px; /* 宽度和高度 */
+    cursor: pointer; /* 鼠标指针样式 */
+}
+
+label[for="erase-flash-checkbox"] {
+    cursor: pointer; /* 鼠标指针样式 */
+}
+
+
+/* 终端日志区域 */
+.terminal-section {
+    margin-top: 2rem; /* 顶部外边距 */
+    width: 100%; /* 宽度占满 */
+    max-width: 1100px; /* 最大宽度 */
+    text-align: left; /* 文本左对齐 */
+    margin: 0 auto; /* 水平居中 */
+}
+
+.terminal-section.hidden {
+    display: none; /* 隐藏状态 */
+}
+
+#terminal-log {
+    background-color: #000; /* 背景颜色 (深色模式) */
+    color: #0F0; /* 文本颜色 (深色模式) */
+    padding: 0.5rem; /* 内边距 */
+    border-radius: 8px; /* 圆角 */
+    font-family: 'monospace', monospace; /* 字体 */
+    font-size: 0.9rem; /* 字体大小 */
+    height: 345px; /* 高度 */
+    overflow: hidden; /* 隐藏溢出内容 (由xterm.js处理滚动) */
+    border: 1px solid var(--border-color); /* 边框样式 */
+}
+
+body.light-mode #terminal-log {
+    background-color: #FFF; /* 背景颜色 (浅色模式) */
+    color: #333; /* 文本颜色 (浅色模式) */
+    border-color: #DDD; /* 边框颜色 (浅色模式) */
+}
+
+/* 串口监视器模态框特定样式 */
+.serial-info-content {
+    padding: 1rem 2rem; /* 内边距 */
+    text-align: left; /* 文本左对齐 */
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 垂直方向排列子元素 */
+    flex-grow: 1; /* 占据可用空间 */
+}
+
+.serial-info-content .baud-rate-selector {
+    margin-top: 0; /* 顶部外边距 */
+    justify-content: flex-start; /* 子元素靠左对齐 */
+    padding: 0; /* 内边距 */
+}
+
+.serial-monitor-terminal {
+    border: 1px solid var(--border-color); /* 边框样式 */
+    border-radius: 8px; /* 圆角 */
+    flex-grow: 1; /* 占据可用空间 */
+    margin-top: 1rem; /* 顶部外边距 */
+}
+
+/* --- 页面底部样式 --- */
+footer {
+    width: 100%; /* 宽度占满 */
+    max-width: 2000px; /* 最大宽度 */
+    padding: 2rem 5rem; /* 内边距 */
+    box-sizing: border-box; /* 盒模型为边框盒 */
+    border-top: 1px solid var(--border-color); /* 顶部边框 */
+    display: flex; /* 使用Flex布局 */
+    justify-content: space-between; /* 子元素两端对齐 */
+    align-items: center; /* 子元素垂直居中 */
+    color: var(--secondary-text-color); /* 文本颜色 */
+}
+
+.footer-socials {
+    display: flex; /* 使用Flex布局 */
+    gap: 1.5rem; /* 子元素间距 */
+}
+
+.footer-socials a {
+    color: var(--secondary-text-color); /* 链接文本颜色 */
+    font-size: 1.5rem; /* 字体大小 */
+    transition: color 0.3s ease, transform 0.3s ease; /* 颜色和形变过渡动画 */
+}
+
+.footer-socials a:hover {
+    color: var(--primary-text-color); /* 悬停文本颜色 */
+    transform: translateY(-3px); /* 悬停上移效果 */
+}
+
+.footer-link {
+    color: var(--secondary-text-color); /* 默认颜色与页脚文字一致 */
+    text-decoration: none; /* 去掉下划线 */
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-text-color); /* 悬停时变亮 */
+    text-decoration: underline; /* 悬停时加下划线，强调它是链接 */
+}
+
+
+/* --- 动画与辅助工具 --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } /* 淡入动画 */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } /* 从底部淡入动画 */
+
+/* --- 响应式设计 --- */
+@media (max-width: 768px) {
+    .stepper, footer { flex-direction: column; gap: 1rem; } /* 步骤指示器和页脚在小屏幕上垂直排列 */
+    .step { flex-direction: column; align-items: center; padding: 1.5rem; } /* 步骤卡片样式调整 */
+    .step-content { width: 100%; } /* 步骤内容宽度 */
+    .step-button.selected { text-align: center; } /* 选中按钮文本居中 */
+    header { flex-direction: column; gap: 1rem; } /* 头部在小屏幕上垂直排列 */
+    .controls-grid {
+        grid-template-columns: 1fr; /* 控制网格在小屏幕上单列显示 */
+    }
+    .controls-grid .baud-rate-selector,
+    .controls-grid .erase-checkbox-container {
+        justify-self: center; /* 波特率选择器和擦除复选框在小屏幕上居中 */
+    }
+}
+
+/* 1. 模态框容器：保持高度，防止溢出 */
+.serial-monitor-modal-content {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 85vh !important; 
+    max-height: 900px !important;
+    overflow: hidden !important;
+}
+
+/* 2. 模态框主体：传递高度 */
+.serial-info-modal .modal-main {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important; 
+    overflow: hidden !important;
+    width: 100% !important;
+}
+
+/* 3. 内容包装层：增加舒适的内边距 */
+.serial-info-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    /* [修改点] 上:1.5rem, 左右:2.5rem, 下:2.5rem -> 让黑框不那么贴边，显得更高级 */
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem !important;
+    box-sizing: border-box !important;
+}
+
+/* 4. 波特率选择器区域：增加与黑框的距离 */
+.serial-info-content .baud-rate-selector {
+    /* [修改点] 增加底部边距，把黑框往下推一点 */
+    margin-bottom: 1.25rem !important; 
+    flex-shrink: 0 !important;
+}
+
+/* 5. 黑色终端外壳：视觉优化 */
+.serial-monitor-terminal {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 0 !important;
+    min-height: 200px !important;
+    
+    /* [修改点] 边框颜色稍微浅一点，圆角稍微大一点 */
+    border: 1px solid rgba(0, 0, 0, 0.1) !important; /* 更细腻的边框 */
+    border-radius: 10px !important; /* 更圆润的角 */
+    
+    overflow: hidden !important;
+    background-color: #000;
+    /* [修改点] 加一点淡淡的阴影，增加层次感 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 深色模式下的边框适配 */
+body:not(.light-mode) .serial-monitor-terminal {
+    border: 1px solid var(--border-color) !important;
+}
+
+/* 6. 内部全屏拉伸 */
+.serial-monitor-terminal > div, 
+.serial-monitor-terminal .xterm-screen,
+.serial-monitor-terminal canvas {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/* --- 功能说明悬浮组件样式 --- */
+.info-widget {
+    position: fixed;
+    bottom: 80%;
+    right: 2rem;
+    z-index: 900; /* 略低于模态框，但高于页面内容 */
+    font-family: var(--font-main);
+}
+
+/* --- 状态1：圆形按钮 --- */
+.info-trigger-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-accent-color);
+    color: var(--background-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 弹性动画 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 鼠标悬浮动画 */
+.info-trigger-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background-color: var(--primary-accent-hover);
+}
+
+/* 适配浅色模式的文字颜色 */
+body.light-mode .info-trigger-btn {
+    color: var(--background-color);
+}
+
+/* --- 状态2：展开的卡片 --- */
+.info-card {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    right: 0;
+    width: 320px; /* 卡片宽度 */
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    
+    /* 初始状态：隐藏且缩小 */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transform-origin: top right; /* 从右下角放大 */
+    transition: all 0.3s ease;
+}
+
+.info-header {
+    background-color: var(--background-color);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--primary-text-color);
+}
+
+.info-close-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.info-close-btn:hover {
+    color: var(--primary-text-color);
+}
+
+.info-body {
+    padding: 1.5rem;
+    color: var(--primary-text-color);
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.info-body p {
+    margin-bottom: 0.8rem;
+}
+
+.info-body p:last-child {
+    margin-bottom: 0;
+}
+
+.info-body .note {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    margin-top: 1rem;
+    font-style: italic;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+}
+
+/* --- 交互状态类 --- */
+/* 当组件处于“展开”状态时 */
+.info-widget.expanded .info-trigger-btn {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.5); /* 缩小消失 */
+}
+
+.info-widget.expanded .info-card {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); /* 恢复原大小 */
+}
