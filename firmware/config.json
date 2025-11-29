@@ -104,8 +104,8 @@
       "image": "firmware/FNK0104/FNK0104.png",
       "firmwares": [
         {
-          "id": "ESP32S3_240_320_28",
-          "name": "ESP32S3_240_320_28",
+          "id": "NerdMiner-FNK0104",
+          "name": "NerdMiner-FNK0104",
           "versions": [
             {
               "id": "V1.8.3",
@@ -122,8 +122,8 @@
       "image": "firmware/FNK0086/FNK0086.png",
       "firmwares": [
         {
-          "id": "ESP32S3_240_320_28",
-          "name": "ESP32S3_240_320_28",
+          "id": "NerdMiner-FNK0086",
+          "name": "NerdMiner-FNK0086",
           "versions": [
             {
               "id": "V1.8.3",
