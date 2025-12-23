@@ -1,5 +1,5 @@
 // 导入esptool-integration.js中导出的所有功能函数和对象
-import { connectToDevice, disconnectDevice, startFlashing, getSerialPortInfo, getConnectedPort, consoleTerminal, fitAddon, changeBaudRate, serialMonitorTerminal, monitorFitAddon, startSerialMonitor, stopSerialMonitor, sendSerialData } from './esptool-integration.js';
+import { connectToDevice, disconnectDevice, startFlashing, getSerialPortInfo, getConnectedPort, consoleTerminal, fitAddon, changeBaudRate, serialMonitorTerminal, monitorFitAddon, startSerialMonitor, stopSerialMonitor, sendSerialData, clearSerialTerminal } from './esptool-integration.js';
 
 // 等待DOM内容完全加载后再执行脚本
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const serialInfoModal = document.getElementById('serial-info-modal');
     const closeSerialInfoModalBtn = document.getElementById('close-serial-info-modal-btn');
     const modalBaudRateSelect = document.getElementById('modal-baud-rate-select');
+    const clearTerminalBtn = document.getElementById('clear-terminal-btn');
     // 新增：发送区域元素
     const serialSendInput = document.getElementById('serial-send-input');
     const serialSendBtn = document.getElementById('serial-send-btn');
@@ -321,6 +322,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const newRate = parseInt(modalBaudRateSelect.value);
             await changeBaudRate(newRate);
         }
+    });
+
+    // 清空终端按钮
+    clearTerminalBtn.addEventListener('click', () => {
+        clearSerialTerminal();
     });
 
     // 串口发送按钮

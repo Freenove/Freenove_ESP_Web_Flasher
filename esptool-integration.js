@@ -39,6 +39,11 @@ const consoleTerminal = {
     write: (data) => term.write(data),
 };
 
+// 新增：清空串口监视器
+function clearSerialTerminal() {
+    serialMonitorTerminal.clear();
+}
+
 // --- 全局状态变量 ---
 let device = null;          // SerialPort 对象 (Web Serial API)
 let transport = null;       // ESPLoader 的 Transport 对象 (仅在烧录时使用)
@@ -71,7 +76,8 @@ async function connectToDevice(baudrate) {
         consoleTerminal.writeLine("Connected to device (Serial Mode).");
         
         // 连接成功后立即启动串口监视
-        startSerialMonitor();
+        // 增加短暂延迟，确保底层 readable 状态已更新
+        setTimeout(() => startSerialMonitor(), 100);
         
         return true;
     } catch (error) {
@@ -105,7 +111,26 @@ async function disconnectDevice() {
  * 启动串口监视读取循环。
  */
 async function startSerialMonitor() {
-    if (!device || !device.readable || keepReading) return;
+    // 防止重复启动，先停止之前的
+    if (keepReading) {
+        keepReading = false;
+        if (monitorReader) {
+            try { await monitorReader.cancel(); } catch(e) {}
+            monitorReader = null;
+        }
+    }
+
+    if (!device) return;
+
+    // 检查 readable 状态，如果未就绪则稍作等待
+    if (!device.readable) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        if (!device.readable) {
+            console.error("Serial Monitor Error: Port is not readable.");
+            serialMonitorTerminal.writeln("\r\n[ERROR] Port not readable. Please reconnect.");
+            return;
+        }
+    }
     
     keepReading = true;
     serialMonitorTerminal.writeln(`\r\n[MONITOR] Started at ${currentBaudRate} baud.`);
@@ -364,5 +389,6 @@ export {
     monitorFitAddon,
     startSerialMonitor,  // 现在内部自动管理，但也可以暴露
     stopSerialMonitor,   // 暴露以供模态框关闭时调用
-    sendSerialData       // 新增发送功能
+    sendSerialData,       // 新增发送功能
+    clearSerialTerminal   // 新增清空功能
 };
