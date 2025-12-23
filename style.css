@@ -659,6 +659,37 @@ body:not(.light-mode) .serial-monitor-terminal {
     width: 100% !important;
 }
 
+/* --- 串口发送区域样式 --- */
+.serial-send-area {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    height: 3rem; /* 固定高度 */
+}
+
+#serial-send-input {
+    flex-grow: 1;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0 1rem;
+    color: var(--primary-text-color);
+    font-family: 'monospace', monospace;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#serial-send-input:focus {
+    border-color: var(--primary-text-color);
+}
+
+#serial-send-btn {
+    width: auto;
+    padding: 0 2rem;
+    white-space: nowrap;
+}
+
 /* --- 功能说明悬浮组件样式 --- */
 .info-widget {
     position: fixed;

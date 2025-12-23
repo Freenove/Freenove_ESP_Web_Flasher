@@ -1,48 +1,46 @@
 // 导入esptool-integration.js中导出的所有功能函数和对象
-import { initESPLoader, disconnectESPLoader, startFlashing, getSerialPortInfo, getConnectedPort, consoleTerminal, fitAddon, changeBaudRate, serialMonitorTerminal, monitorFitAddon, startSerialMonitor, stopSerialMonitor } from './esptool-integration.js';
+import { connectToDevice, disconnectDevice, startFlashing, getSerialPortInfo, getConnectedPort, consoleTerminal, fitAddon, changeBaudRate, serialMonitorTerminal, monitorFitAddon, startSerialMonitor, stopSerialMonitor, sendSerialData } from './esptool-integration.js';
 
 // 等待DOM内容完全加载后再执行脚本
 document.addEventListener('DOMContentLoaded', () => {
     // --- DOM元素引用 ---
-    const body = document.body; // 页面主体元素
-    const selectDeviceBtn = document.getElementById('select-device-btn'); // 选择设备按钮
-    const firmwareSelect = document.getElementById('firmware-select'); // 固件选择下拉框
-    const versionSelect = document.getElementById('version-select'); // 版本选择下拉框
-    const connectBtn = document.getElementById('connect-btn'); // 连接按钮
-    const flashBtn = document.getElementById('flash-btn'); // 烧录按钮
-    const toggleConsoleBtn = document.getElementById('toggle-console-btn'); // 切换控制台显示按钮
-    const serialPortInfoBtn = document.getElementById('serial-port-info-btn'); // 串口监视器按钮
-    const themeSwitcher = document.getElementById('theme-switcher'); // 主题切换按钮
-    const baudRateSelect = document.getElementById('baud-rate-select'); // 波特率选择下拉框
-    const terminalSection = document.querySelector('.terminal-section'); // 主终端显示区域
+    const body = document.body;
+    const selectDeviceBtn = document.getElementById('select-device-btn');
+    const firmwareSelect = document.getElementById('firmware-select');
+    const versionSelect = document.getElementById('version-select');
+    const connectBtn = document.getElementById('connect-btn');
+    const flashBtn = document.getElementById('flash-btn');
+    const toggleConsoleBtn = document.getElementById('toggle-console-btn');
+    const serialPortInfoBtn = document.getElementById('serial-port-info-btn');
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const baudRateSelect = document.getElementById('baud-rate-select');
+    const terminalSection = document.querySelector('.terminal-section');
 
     // 模态框元素
-    const deviceModal = document.getElementById('device-modal'); // 设备选择模态框
-    const closeModalBtn = document.getElementById('close-modal-btn'); // 关闭设备选择模态框按钮
-    const deviceList = document.getElementById('device-list'); // 设备列表容器
-    const leftArrow = document.querySelector('.left-arrow'); // 设备轮播左箭头
-    const rightArrow = document.querySelector('.right-arrow'); // 设备轮播右箭头
+    const deviceModal = document.getElementById('device-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const deviceList = document.getElementById('device-list');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
 
     // 串口信息模态框元素
-    const serialInfoModal = document.getElementById('serial-info-modal'); // 串口监视器模态框
-    const closeSerialInfoModalBtn = document.getElementById('close-serial-info-modal-btn'); // 关闭串口监视器模态框按钮
-    const serialVendorId = document.getElementById('serial-vendor-id'); // 串口供应商ID显示元素 (HTML中可能未实际使用，但保留引用)
-    const serialProductId = document.getElementById('serial-product-id'); // 串口产品ID显示元素 (HTML中可能未实际使用，但保留引用)
-    const serialBaudRateDisplay = document.getElementById('serial-baud-rate'); // 串口波特率显示元素 (HTML中可能未实际使用，但保留引用)
-    const modalBaudRateSelect = document.getElementById('modal-baud-rate-select'); // 串口监视器模态框内的波特率选择下拉框
-    const toggleMonitorBtn = document.getElementById('toggle-monitor-btn'); // 启动/停止串口监视按钮
+    const serialInfoModal = document.getElementById('serial-info-modal');
+    const closeSerialInfoModalBtn = document.getElementById('close-serial-info-modal-btn');
+    const modalBaudRateSelect = document.getElementById('modal-baud-rate-select');
+    // 新增：发送区域元素
+    const serialSendInput = document.getElementById('serial-send-input');
+    const serialSendBtn = document.getElementById('serial-send-btn');
 
     // 步骤指示器元素
-    const step2 = document.getElementById('step-2'); // 步骤2 (选择固件)
-    const step3 = document.getElementById('step-3'); // 步骤3 (选择版本)
+    const step2 = document.getElementById('step-2');
+    const step3 = document.getElementById('step-3');
 
     // --- 应用程序状态变量 ---
-    let appConfig = null; // 存储从config.json加载的应用程序配置
-    let selectedDevice = null; // 当前选中的设备对象
-    let selectedFirmware = null; // 当前选中的固件对象
-    let selectedVersion = null; // 当前选中的固件版本对象
-    let isConnected = false; // 串口连接状态
-    let isMonitoring = false; // 串口监视状态
+    let appConfig = null;
+    let selectedDevice = null;
+    let selectedFirmware = null;
+    let selectedVersion = null;
+    let isConnected = false;
 
     // --- 功能函数 ---
 
@@ -51,433 +49,330 @@ document.addEventListener('DOMContentLoaded', () => {
     serialMonitorTerminal.open(serialMonitorTerminalElement);
 
 
-    /**
-     * 切换模态框的显示状态。
-     * @param {HTMLElement} modalElement - 要切换显示状态的模态框DOM元素。
-     */
     function toggleModal(modalElement) {
-        modalElement.classList.toggle('is-visible'); // 切换'is-visible'类以控制模态框显示/隐藏
-        
+        modalElement.classList.toggle('is-visible');
     }
     
-    /**
-     * 根据appConfig中的设备数据渲染设备轮播列表。
-     */
     function renderDeviceCarousel() {
         if (!appConfig || !appConfig.devices) {
-            console.error("Configuration not loaded or has no devices."); // 错误日志：配置未加载或无设备数据
+            console.error("Configuration not loaded or has no devices.");
             return;
         }
-        deviceList.innerHTML = ''; // 清空现有设备列表
+        deviceList.innerHTML = '';
         appConfig.devices.forEach(device => {
-            const item = document.createElement('div'); // 为每个设备创建DOM元素
+            const item = document.createElement('div');
             item.className = 'device-item';
-            item.dataset.deviceId = device.id; // 存储设备ID
+            item.dataset.deviceId = device.id;
             item.innerHTML = `
                 <div class="device-image-wrapper">
                     <img src="${device.image || 'freenove.ico'}" alt="${device.name}" class="device-image-placeholder" />
                 </div>
                 <span class="device-name">${device.name}</span>
             `;
-            item.addEventListener('click', () => handleDeviceSelection(device)); // 添加点击事件处理器
-            deviceList.appendChild(item); // 将设备项添加到列表中
+            item.addEventListener('click', () => handleDeviceSelection(device));
+            deviceList.appendChild(item);
         });
     }
 
-    /**
-     * 处理设备选择事件，更新UI状态和下拉框内容。
-     * @param {object} device - 选中的设备对象。
-     */
     function handleDeviceSelection(device) {
+        selectedDevice = device;
+        selectedFirmware = null;
+        selectedVersion = null;
         
-        selectedDevice = device; // 更新选中的设备
-        selectedFirmware = null; // 重置固件选择
-        selectedVersion = null; // 重置版本选择
-        
-        selectDeviceBtn.innerHTML = `<span>${device.name}</span>`; // 更新设备选择按钮文本
-        selectDeviceBtn.classList.add('selected'); // 添加选中样式
+        selectDeviceBtn.innerHTML = `<span>${device.name}</span>`;
+        selectDeviceBtn.classList.add('selected');
 
-        // 根据设备是否有固件来填充固件下拉框
         if (device.firmwares && device.firmwares.length > 0) {
-            populateDropdown(firmwareSelect, device.firmwares, 'Select firmware'); // 填充固件下拉框
-            firmwareSelect.disabled = false; // 启用固件下拉框
-            step2.classList.add('active'); // 激活步骤2
+            populateDropdown(firmwareSelect, device.firmwares, 'Select firmware');
+            firmwareSelect.disabled = false;
+            step2.classList.add('active');
         } else {
-            populateDropdown(firmwareSelect, [], 'No firmware available'); // 显示无固件信息
-            populateDropdown(versionSelect, [], 'Select version'); // 清空版本下拉框
-            firmwareSelect.disabled = true; // 禁用固件下拉框
-            versionSelect.disabled = true; // 禁用版本下拉框
-            step2.classList.remove('active'); // 取消激活步骤2
-            step3.classList.remove('active'); // 取消激活步骤3
+            populateDropdown(firmwareSelect, [], 'No firmware available');
+            populateDropdown(versionSelect, [], 'Select version');
+            firmwareSelect.disabled = true;
+            versionSelect.disabled = true;
+            step2.classList.remove('active');
+            step3.classList.remove('active');
         }
         
-        populateDropdown(versionSelect, [], 'Select version'); // 清空版本下拉框
-        versionSelect.disabled = true; // 禁用版本下拉框
-        step3.classList.remove('active'); // 取消激活步骤3
+        populateDropdown(versionSelect, [], 'Select version');
+        versionSelect.disabled = true;
+        step3.classList.remove('active');
         
-        updateButtonStates(); // 更新按钮状态
-        toggleModal(deviceModal); // 关闭设备选择模态框
+        updateButtonStates();
+        toggleModal(deviceModal);
     }
     
-    /**
-     * 填充下拉框 (select元素) 的选项。
-     * @param {HTMLSelectElement} selectElement - 下拉框DOM元素。
-     * @param {Array<object>} items - 包含id和name属性的选项数组。
-     * @param {string} placeholder - 默认的占位文本。
-     */
     function populateDropdown(selectElement, items, placeholder) {
-        selectElement.innerHTML = `<option value="">${placeholder}</option>`; // 设置占位符选项
+        selectElement.innerHTML = `<option value="">${placeholder}</option>`;
         items.forEach(item => {
             const option = document.createElement('option');
-            option.value = item.id; // 选项值设为item的id
-            option.textContent = item.name; // 选项文本设为item的name
-            selectElement.appendChild(option); // 添加选项到下拉框
+            option.value = item.id;
+            option.textContent = item.name;
+            selectElement.appendChild(option);
         });
     }
 
     /**
-     * 根据当前连接和选择状态更新操作按钮的可用性。
+     * 更新按钮状态
+     * 逻辑更改:
+     * 1. Connect按钮始终可用 (除非正在连接/断开中)。
+     * 2. Monitor按钮在连接成功后即可用。
+     * 3. Flash按钮仅在 连接成功 + 设备/固件/版本已选 时可用。
      */
     function updateButtonStates() {
-        console.log("updateButtonStates called."); // 调试日志：函数调用
-        console.log("Current isConnected:", isConnected); // 调试日志：当前连接状态
-        const canFlash = selectedDevice && selectedFirmware && selectedVersion; // 判断是否可烧录
-        console.log("Current canFlash:", canFlash); // 调试日志：是否可烧录
+        const canFlash = selectedDevice && selectedFirmware && selectedVersion;
         
-        // 连接/断开按钮状态
-        connectBtn.disabled = !canFlash; // 在设备、固件、版本全部选择前禁用
+        // 连接按钮逻辑 (主要由isConnected状态控制文本，点击事件本身处理disabled)
         if (isConnected) {
-            connectBtn.innerHTML = '<i class="fas fa-unlink"></i> Disconnect'; // 已连接则显示断开按钮
+            connectBtn.innerHTML = '<i class="fas fa-unlink"></i> Disconnect';
         } else {
-            connectBtn.innerHTML = '<i class="fas fa-link"></i> Connect'; // 未连接则显示连接按钮
+            connectBtn.innerHTML = '<i class="fas fa-link"></i> Connect';
         }
-        console.log("Connect button disabled:", connectBtn.disabled); // 调试日志：连接按钮禁用状态
 
         // 烧录按钮状态
-        flashBtn.disabled = !(isConnected && canFlash); // 仅在连接且所有选择完成时启用
-        console.log("Flash button disabled:", flashBtn.disabled); // 调试日志：烧录按钮禁用状态
+        flashBtn.disabled = !(isConnected && canFlash);
 
         // 串口监视器按钮状态
-        serialPortInfoBtn.disabled = !isConnected; // 仅在连接时启用
-        console.log("Serial Port Info button disabled:", serialPortInfoBtn.disabled); // 调试日志：串口监视器按钮禁用状态
+        serialPortInfoBtn.disabled = !isConnected;
     }
 
     // --- 主题切换功能 ---
-    /**
-     * 设置应用程序主题 (深色/浅色)。
-     * @param {string} theme - 'light' 或 'dark'。
-     */
     function setTheme(theme) {
-        localStorage.setItem('theme', theme); // 将主题偏好存储到localStorage
-        body.className = theme === 'light' ? 'light-mode' : ''; // 根据主题切换body的类名
-        themeSwitcher.innerHTML = theme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'; // 切换主题图标
+        localStorage.setItem('theme', theme);
+        body.className = theme === 'light' ? 'light-mode' : '';
+        themeSwitcher.innerHTML = theme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
 
-    /**
-     * 从localStorage加载主题，或根据系统偏好设置默认主题。
-     */
     function loadTheme() {
-        const savedTheme = localStorage.getItem('theme'); // 获取保存的主题
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; // 检查系统是否偏好深色模式
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (savedTheme) {
-            setTheme(savedTheme); // 使用保存的主题
+            setTheme(savedTheme);
         } else if (prefersDark) {
-            setTheme('dark'); // 如果系统偏好深色模式，设置深色主题
+            setTheme('dark');
         } else {
-            setTheme('light'); // 否则设置浅色主题
+            setTheme('light');
         }
     }
 
     // --- 事件监听器 ---
 
-    // 监听窗口大小变化事件，调整终端显示
     window.addEventListener('resize', () => {
         if (serialInfoModal.classList.contains('is-visible')) {
-            monitorFitAddon.fit(); // 如果串口监视器模态框可见，调整其终端大小
+            monitorFitAddon.fit();
         }
-        fitAddon.fit(); // 调整主终端大小
+        fitAddon.fit();
     });
 
-    // 监听串口断开连接事件
     navigator.serial.addEventListener('disconnect', async (event) => {
-        console.log("Disconnect event fired."); // 调试日志：断开连接事件触发
-        const connectedPort = getConnectedPort(); // 获取当前连接的串口对象
-        console.log("Connected Port (from getConnectedPort):", connectedPort); // 调试日志：已连接的串口
-        console.log("Event Port:", event.port); // 调试日志：事件中的串口
-
-        let isOurPortDisconnected = false; // 标志位：是否是我们的串口断开连接
-
-        if (event.port) {
-            // 如果事件包含port信息，尝试通过Vendor/Product ID匹配
-            if (connectedPort) {
-                const connectedPortInfo = await getSerialPortInfo(); // 获取已连接串口的详细信息
-                console.log("Connected Port Info:", connectedPortInfo); // 调试日志：已连接串口信息
-                console.log("Event Port Vendor ID:", event.port.usbVendorId); // 调试日志：事件串口Vendor ID
-                console.log("Event Port Product ID:", event.port.usbProductId); // 调试日志：事件串口Product ID
-
-                if (connectedPortInfo && event.port.usbVendorId && event.port.usbProductId &&
-                    connectedPortInfo.usbVendorId === `0x${event.port.usbVendorId.toString(16).padStart(4, '0')}` &&
-                    connectedPortInfo.usbProductId === `0x${event.port.usbProductId.toString(16).padStart(4, '0')}`) {
-                    isOurPortDisconnected = true; // 匹配成功，是我们的串口断开
-                }
-            }
-        } else {
-            // 如果事件不包含port信息，假设是我们连接的串口断开
-            console.log("Event Port is undefined. Assuming our port disconnected if isConnected is true."); // 调试日志：事件串口未定义，假设是我们的串口断开
-            if (isConnected) {
-                isOurPortDisconnected = true;
-            }
-        }
-
-        if (isOurPortDisconnected) {
-            isConnected = false; // 更新连接状态
-            disconnectESPLoader(); // 调用ESPLoader的断开连接函数
-            consoleTerminal.writeLine("Device disconnected."); // 向控制台输出断开连接信息
-            updateButtonStates(); // 更新按钮状态
-        } else {
-            console.log("Disconnect event: Conditions for port match not met or event.port undefined and not connected."); // 调试日志：断开连接事件条件不满足
+        // 简化处理：任何断开都视为设备断开
+        if (isConnected) {
+            isConnected = false;
+            await disconnectDevice();
+            consoleTerminal.writeLine("Device disconnected (Event).");
+            updateButtonStates();
         }
     });
 
-    // 选择设备按钮点击事件：打开设备选择模态框
     selectDeviceBtn.addEventListener('click', () => toggleModal(deviceModal));
-    // 关闭设备选择模态框按钮点击事件
     closeModalBtn.addEventListener('click', () => toggleModal(deviceModal));
-    // 点击模态框背景区域时关闭设备选择模态框
     deviceModal.addEventListener('click', (e) => {
         if (e.target === deviceModal) toggleModal(deviceModal);
     });
 
-    // 关闭串口监视器模态框按钮点击事件
+    // 关闭串口监视器模态框
     closeSerialInfoModalBtn.addEventListener('click', () => {
-        if (isMonitoring) {
-            stopSerialMonitor(); // 如果正在监视，则停止
-            isMonitoring = false; // 更新监视状态
-            toggleMonitorBtn.textContent = 'Start Monitor'; // 恢复按钮文本
-        }
-        toggleModal(serialInfoModal); // 关闭模态框
+        toggleModal(serialInfoModal);
     });
-    // 点击串口监视器模态框背景区域时关闭
     serialInfoModal.addEventListener('click', (e) => {
         if (e.target === serialInfoModal) {
-            if (isMonitoring) {
-                stopSerialMonitor(); // 如果正在监视，则停止
-                isMonitoring = false; // 更新监视状态
-                toggleMonitorBtn.textContent = 'Start Monitor'; // 恢复按钮文本
-            }
-            toggleModal(serialInfoModal); // 关闭模态框
+            toggleModal(serialInfoModal);
         }
     });
 
-    // 主题切换器点击事件
     themeSwitcher.addEventListener('click', () => {
-        const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark'; // 获取当前主题
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light'; // 计算新主题
-        setTheme(newTheme); // 设置新主题
+        const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+        setTheme(currentTheme === 'light' ? 'dark' : 'light');
     });
 
-    // 设备轮播左箭头点击事件
     leftArrow.addEventListener('click', () => {
-        deviceList.scrollBy({ left: -300, behavior: 'smooth' }); // 向左平滑滚动
+        deviceList.scrollBy({ left: -300, behavior: 'smooth' });
     });
-    // 设备轮播右箭头点击事件
     rightArrow.addEventListener('click', () => {
-        deviceList.scrollBy({ left: 300, behavior: 'smooth' }); // 向右平滑滚动
+        deviceList.scrollBy({ left: 300, behavior: 'smooth' });
     });
 
-    // 固件选择下拉框变更事件
     firmwareSelect.addEventListener('change', () => {
-        const firmwareId = firmwareSelect.value; // 获取选中的固件ID
-        selectedFirmware = selectedDevice?.firmwares.find(f => f.id === firmwareId) || null; // 查找对应固件对象
-        selectedVersion = null; // 重置版本选择
+        const firmwareId = firmwareSelect.value;
+        selectedFirmware = selectedDevice?.firmwares.find(f => f.id === firmwareId) || null;
+        selectedVersion = null;
 
-        // 根据固件是否有版本来填充版本下拉框
         if (selectedFirmware && selectedFirmware.versions && selectedFirmware.versions.length > 0) {
-            populateDropdown(versionSelect, selectedFirmware.versions, 'Select version'); // 填充版本下拉框
-            versionSelect.disabled = false; // 启用版本下拉框
-            step3.classList.add('active'); // 激活步骤3
+            populateDropdown(versionSelect, selectedFirmware.versions, 'Select version');
+            versionSelect.disabled = false;
+            step3.classList.add('active');
         } else {
-            populateDropdown(versionSelect, [], 'No versions available'); // 显示无版本信息
-            versionSelect.disabled = true; // 禁用版本下拉框
-            step3.classList.remove('active'); // 取消激活步骤3
+            populateDropdown(versionSelect, [], 'No versions available');
+            versionSelect.disabled = true;
+            step3.classList.remove('active');
         }
-        updateButtonStates(); // 更新按钮状态
+        updateButtonStates();
     });
 
-    // 版本选择下拉框变更事件
     versionSelect.addEventListener('change', () => {
-        const versionId = versionSelect.value; // 获取选中的版本ID
-        selectedVersion = selectedFirmware?.versions.find(v => v.id === versionId) || null; // 查找对应版本对象
-        updateButtonStates(); // 更新按钮状态
+        const versionId = versionSelect.value;
+        selectedVersion = selectedFirmware?.versions.find(v => v.id === versionId) || null;
+        updateButtonStates();
     });
 
     // 连接按钮点击事件
     connectBtn.addEventListener('click', async () => {
-        const selectedBaudRate = parseInt(baudRateSelect.value); // 获取选中的波特率
+        // 连接时使用监视器设定的波特率 (默认 115200)
+        const monitorBaudRate = parseInt(modalBaudRateSelect.value);
         if (!isConnected) {
             // 连接阶段
-            connectBtn.disabled = true; // 禁用连接按钮
-            connectBtn.textContent = 'Connecting...'; // 更新按钮文本
+            connectBtn.disabled = true;
+            connectBtn.textContent = 'Connecting...';
             try {
-                await initESPLoader(selectedBaudRate); // 初始化ESPLoader并尝试连接
-                isConnected = true; // 更新连接状态
-                consoleTerminal.writeLine("Device connected."); // 向控制台输出连接成功信息
+                // 调用新的连接函数 (纯串口连接，不复位)
+                await connectToDevice(monitorBaudRate);
+                isConnected = true;
             } catch (error) {
-                console.error("连接失败:", error); // 错误日志：连接失败
-                consoleTerminal.writeLine("Connection failed: " + error.message); // 向控制台输出连接失败信息
-                isConnected = false; // 更新连接状态
+                isConnected = false;
             } finally {
-                connectBtn.disabled = false; // 重新启用连接按钮
-                updateButtonStates(); // 更新按钮状态
+                connectBtn.disabled = false;
+                updateButtonStates();
             }
         } else {
             // 断开连接阶段
-            if (isMonitoring) {
-                await stopSerialMonitor(); // 如果正在监视，则停止监视
-                isMonitoring = false; // 更新监视状态
-                toggleMonitorBtn.textContent = 'Start Monitor'; // 恢复监视按钮文本
-            }
-            connectBtn.disabled = true; // 禁用连接按钮
-            connectBtn.textContent = 'Disconnecting...'; // 更新按钮文本
+            connectBtn.disabled = true;
+            connectBtn.textContent = 'Disconnecting...';
             try {
-                await disconnectESPLoader(); // 断开ESPLoader连接
-                isConnected = false; // 更新连接状态
-                consoleTerminal.writeLine("Device disconnected."); // 向控制台输出断开连接信息
+                await disconnectDevice();
+                isConnected = false;
             } catch (error) {
-                console.error("断开连接失败:", error); // 错误日志：断开连接失败
-                consoleTerminal.writeLine("Disconnection failed: " + error.message); // 向控制台输出断开连接失败信息
+                console.error("断开连接失败:", error);
             } finally {
-                connectBtn.disabled = false; // 重新启用连接按钮
-                updateButtonStates(); // 更新按钮状态
+                connectBtn.disabled = false;
+                updateButtonStates();
             }
         }
     });
 
     // 烧录按钮点击事件
     flashBtn.addEventListener('click', async () => {
-        console.log("Flash button clicked."); // 调试日志：烧录按钮被点击
-        flashBtn.disabled = true; // 禁用烧录按钮
-        connectBtn.disabled = true; // 禁用连接按钮
-        serialPortInfoBtn.disabled = true; // 禁用串口监视器按钮
-        flashBtn.textContent = 'Flashing...'; // 更新烧录按钮文本
-        const eraseFlashCheckbox = document.getElementById('erase-flash-checkbox'); // 获取擦除闪存复选框
-        const shouldEraseFlash = eraseFlashCheckbox ? eraseFlashCheckbox.checked : false; // 获取复选框状态
+        if (!isConnected) return; // 理论上disabled属性已阻止，但双重保险
+
+        flashBtn.disabled = true;
+        connectBtn.disabled = true;
+        serialPortInfoBtn.disabled = true;
+        flashBtn.textContent = 'Flashing...';
+        
+        const eraseFlashCheckbox = document.getElementById('erase-flash-checkbox');
+        const shouldEraseFlash = eraseFlashCheckbox ? eraseFlashCheckbox.checked : false;
+        const flashBaudRate = parseInt(baudRateSelect.value); // 获取主界面的烧录波特率
 
         try {
-            console.log("Starting flashing process..."); // 调试日志：开始烧录过程
-            await startFlashing(selectedVersion, shouldEraseFlash); // 启动烧录过程
-            isConnected = true; // 烧录完成后保持连接状态
-            console.log("Flashing successful. isConnected:", isConnected); // 调试日志：烧录成功及连接状态
+            // startFlashing 现在会处理 停止监视 -> 烧录 -> 恢复监视 的全流程
+            await startFlashing(selectedVersion, shouldEraseFlash, flashBaudRate);
+            // 烧录成功，状态保持为已连接
         } catch (error) {
-            console.error("烧录失败:", error); // 错误日志：烧录失败
-            console.log("Flashing failed. isConnected:", isConnected); // 调试日志：烧录失败及连接状态
+            // 烧录失败，尝试恢复连接状态 (startFlashing内部已尝试恢复，这里主要处理UI)
+            // 如果startFlashing抛出错误，说明恢复连接也可能失败了，或者烧录中途出错
+            // 我们可以检查 getConnectedPort() 是否还有值
+            if (!getConnectedPort()) {
+                isConnected = false;
+            }
         } finally {
-            console.log("Flashing finally block executed."); // 调试日志：烧录finally块执行
-            flashBtn.disabled = false; // 重新启用烧录按钮
-            flashBtn.innerHTML = '<i class="fas fa-bolt"></i> Flash'; // 恢复烧录按钮图标和文本
-            updateButtonStates(); // 更新按钮状态
-            console.log("Flash button state updated."); // 调试日志：烧录按钮状态已更新
+            flashBtn.disabled = false;
+            connectBtn.disabled = false; // 恢复连接按钮可用
+            flashBtn.innerHTML = '<i class="fas fa-bolt"></i> Flash';
+            // 重新计算按钮状态 (如果恢复连接成功，Connect按钮应显示Disconnect)
+            updateButtonStates();
         }
     });
 
-    // 切换控制台显示按钮点击事件
     toggleConsoleBtn.addEventListener('click', () => {
-        terminalSection.classList.toggle('hidden'); // 切换终端区域的隐藏状态
+        terminalSection.classList.toggle('hidden');
         if (terminalSection.classList.contains('hidden')) {
-            toggleConsoleBtn.innerHTML = '<i class="fas fa-terminal"></i> Open Console'; // 如果隐藏，显示“打开控制台”
+            toggleConsoleBtn.innerHTML = '<i class="fas fa-terminal"></i> Open Console';
         } else {
-            toggleConsoleBtn.innerHTML = '<i class="fas fa-terminal"></i> Close Console'; // 如果显示，显示“关闭控制台”
-            fitAddon.fit(); // 调整主终端大小以适应容器
+            toggleConsoleBtn.innerHTML = '<i class="fas fa-terminal"></i> Close Console';
+            fitAddon.fit();
         }
     });
 
     // 串口监视器按钮点击事件
     serialPortInfoBtn.addEventListener('click', async () => {
-        if (!isConnected) return; // 未连接状态下不执行
+        if (!isConnected) return;
 
-        // 打开模态框
         toggleModal(serialInfoModal);
         
-        // 清空并调整终端大小
-        serialMonitorTerminal.clear();
-        // 使用短时延时确保模态框完全可见后再调整终端大小，避免布局问题
+        // 调整终端大小
         setTimeout(() => monitorFitAddon.fit(), 100);
+        
+        // 注意：现在监视器是自动运行的，不需要手动点击Start
+    });
+    
+    // 监视器内波特率改变
+    modalBaudRateSelect.addEventListener('change', async () => {
+        if(isConnected) {
+            const newRate = parseInt(modalBaudRateSelect.value);
+            await changeBaudRate(newRate);
+        }
     });
 
-    // 启动/停止串口监视按钮点击事件
-    toggleMonitorBtn.addEventListener('click', async () => {
-        if (isMonitoring) {
-            // 停止监视
-            await stopSerialMonitor(); // 停止串口监视
-            isMonitoring = false; // 更新监视状态
-            toggleMonitorBtn.textContent = 'Start Monitor'; // 恢复按钮文本
-            serialMonitorTerminal.writeln("\n[MONITOR] Stopped."); // 串口监视器终端输出停止信息
-        } else {
-            // 启动监视
-            const newBaudRate = parseInt(modalBaudRateSelect.value); // 获取选中的波特率
-            if (isConnected && newBaudRate) {
-                try {
-                    serialMonitorTerminal.writeln(`[MONITOR] Starting with baud rate ${newBaudRate}...`); // 串口监视器终端输出启动信息
-                    await changeBaudRate(newBaudRate); // 改变串口波特率
-                    await startSerialMonitor(); // 启动串口监视
-                    isMonitoring = true; // 更新监视状态
-                    toggleMonitorBtn.textContent = 'Stop Monitor'; // 更新按钮文本
-                } catch (error) {
-                    console.error("启动监视器失败:", error); // 错误日志：启动监视器失败
-                    serialMonitorTerminal.writeln(`[MONITOR] Failed to start: ${error.message}`); // 串口监视器终端输出失败信息
-                }
+    // 串口发送按钮
+    serialSendBtn.addEventListener('click', async () => {
+        const text = serialSendInput.value;
+        if (text) {
+            await sendSerialData(text);
+            serialSendInput.value = ''; // 清空输入框
+        }
+    });
+
+    // 串口发送输入框回车事件
+    serialSendInput.addEventListener('keypress', async (e) => {
+        if (e.key === 'Enter') {
+            const text = serialSendInput.value;
+            if (text) {
+                await sendSerialData(text); // 默认不发送换行符，如果需要可以加上 + '\r\n'
+                serialSendInput.value = '';
             }
         }
     });
 
-    /**
-     * 应用程序主初始化函数。
-     * 加载主题、获取设备配置并渲染UI。
-     */
+
     async function initializeApp() {
-        loadTheme(); // 加载并设置主题
+        loadTheme();
         try {
-            const response = await fetch('firmware/config.json'); // 从服务器获取设备配置文件
+            const response = await fetch('firmware/config.json');
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`); // HTTP错误处理
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            appConfig = await response.json(); // 解析JSON配置
-            renderDeviceCarousel(); // 渲染设备轮播列表
-            updateButtonStates(); // 更新按钮状态
+            appConfig = await response.json();
+            renderDeviceCarousel();
+            updateButtonStates();
         } catch (error) {
-            console.error('Failed to load or parse firmware/config.json:', error); // 错误日志：加载或解析配置文件失败
-            consoleTerminal.writeLine('Fatal Error: Could not load device configuration. Please check the console.'); // 向控制台输出致命错误信息
+            console.error('Failed to load or parse firmware/config.json:', error);
+            consoleTerminal.writeLine('Fatal Error: Could not load device configuration. Please check the console.');
         }
     }
 	
-	// --- 功能说明悬浮组件逻辑 ---
 	const infoWidget = document.getElementById('info-widget');
 	const infoTriggerBtn = document.getElementById('info-trigger-btn');
 	const infoCloseBtn = document.getElementById('info-close-btn');
 
 	if (infoWidget && infoTriggerBtn && infoCloseBtn) {
-		// 点击圆形按钮展开
 		infoTriggerBtn.addEventListener('click', () => {
 			infoWidget.classList.add('expanded');
 		});
 
-		// 点击关闭按钮收起
 		infoCloseBtn.addEventListener('click', () => {
 			infoWidget.classList.remove('expanded');
 		});
-
-		// (可选) 点击卡片外部区域也可以收起，如果需要的话可以启用下面这段
-		/*
-		document.addEventListener('click', (e) => {
-			if (infoWidget.classList.contains('expanded') && 
-				!infoWidget.contains(e.target)) {
-				infoWidget.classList.remove('expanded');
-			}
-		});
-		*/
 	}
 
-    // --- 应用程序初始化 ---
-    initializeApp(); // 调用主初始化函数
+    initializeApp();
 });
-

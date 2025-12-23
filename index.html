@@ -89,7 +89,7 @@
             <div class="controls-grid">
                 <!-- 波特率选择器 -->
                 <div class="baud-rate-selector">
-                    <label for="baud-rate-select">Baud Rate:</label>
+                    <label for="baud-rate-select">Flash Baud Rate:</label>
                     <select id="baud-rate-select">
                         <option value="9600">9600</option>
                         <option value="115200">115200</option>
@@ -106,7 +106,7 @@
                     <label for="erase-flash-checkbox">Erase Flash</label>
                 </div>
                 <!-- 连接设备按钮 -->
-                <button id="connect-btn" class="action-btn" disabled><i class="fas fa-link"></i> Connect</button>
+                <button id="connect-btn" class="action-btn"><i class="fas fa-link"></i> Connect</button>
                 <!-- 烧录固件按钮 -->
                 <button id="flash-btn" class="action-btn" disabled><i class="fas fa-bolt"></i> Flash</button>
                 <!-- 切换控制台显示按钮 -->
@@ -200,7 +200,7 @@
                 <div id="serial-info-content" class="serial-info-content">
                     <!-- 串口监视器波特率选择器 -->
                     <div class="baud-rate-selector">
-                        <label for="modal-baud-rate-select">Baud Rate:</label>
+                        <label for="modal-baud-rate-select">Monitor Baud Rate:</label>
                         <select id="modal-baud-rate-select">
                             <option value="9600">9600</option>
                             <option value="115200" selected>115200</option>
@@ -210,11 +210,14 @@
                             <option value="1500000">1500000</option>
                             <option value="2000000">2000000</option>
                         </select>
-                        <!-- 启动/停止监视按钮 -->
-                        <button id="toggle-monitor-btn" class="action-btn small-btn">Start Monitor</button>
                     </div>
                     <!-- 串口监视器终端显示区域 -->
                     <div id="serial-monitor-terminal" class="serial-monitor-terminal"></div>
+                    <!-- 串口发送区域 -->
+                    <div class="serial-send-area">
+                        <input type="text" id="serial-send-input" placeholder="Type command..." />
+                        <button id="serial-send-btn" class="action-btn small-btn">Send</button>
+                    </div>
                 </div>
             </div>
         </div>
