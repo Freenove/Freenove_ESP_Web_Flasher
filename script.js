@@ -366,12 +366,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             console.log("Starting flashing process..."); // 调试日志：开始烧录过程
             await startFlashing(selectedVersion, shouldEraseFlash); // 启动烧录过程
-            consoleTerminal.writeLine("Flashing complete!"); // 向控制台输出烧录成功信息
             isConnected = true; // 烧录完成后保持连接状态
             console.log("Flashing successful. isConnected:", isConnected); // 调试日志：烧录成功及连接状态
         } catch (error) {
             console.error("烧录失败:", error); // 错误日志：烧录失败
-            consoleTerminal.writeLine("Flashing failed: " + error.message); // 向控制台输出烧录失败信息
             console.log("Flashing failed. isConnected:", isConnected); // 调试日志：烧录失败及连接状态
         } finally {
             console.log("Flashing finally block executed."); // 调试日志：烧录finally块执行

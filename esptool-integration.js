@@ -233,9 +233,7 @@ async function startFlashing(selectedVersion, eraseFlash) {
         consoleTerminal.writeLine("Starting flashing process..."); // 输出开始烧录信息
 
         if (eraseFlash) {
-            consoleTerminal.writeLine("Erasing flash (this may take a while)..."); // 输出擦除闪存信息
-            await esploader.eraseFlash(); // 执行擦除操作
-            consoleTerminal.writeLine("Flash erase complete."); // 输出擦除完成信息
+            await esploader.eraseFlash(); // 执行擦除操作，底层库会自动打印擦除进度
         }
 
         const manifestPath = selectedVersion.manifest_path; // 获取固件清单路径
@@ -283,7 +281,7 @@ async function startFlashing(selectedVersion, eraseFlash) {
         // 烧录选项配置
         const flashOptions = {
             fileArray: fileArray, // 待烧录文件数组
-            eraseAll: manifest.new_install_prompt_erase || false, // 是否擦除所有闪存
+            eraseAll: false, // 禁用writeFlash内部的全片擦除
             compress: true, // 启用压缩以加快烧录速度
             flashMode: "keep", // 保持现有闪存模式
             flashFreq: "keep", // 保持现有闪存频率
