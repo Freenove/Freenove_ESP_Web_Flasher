@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     serialSendBtn.addEventListener('click', async () => {
         const text = serialSendInput.value;
         if (text) {
-            await sendSerialData(text);
+            await sendSerialData(text + '\r\n');
             serialSendInput.value = ''; // 清空输入框
         }
     });
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             const text = serialSendInput.value;
             if (text) {
-                await sendSerialData(text); // 默认不发送换行符，如果需要可以加上 + '\r\n'
+                await sendSerialData(text + '\r\n'); // 默认不发送换行符，如果需要可以加上 + '\r\n'
                 serialSendInput.value = '';
             }
         }

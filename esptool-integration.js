@@ -73,7 +73,7 @@ async function connectToDevice(baudrate) {
         await device.open({ baudRate: baudrate });
         currentBaudRate = baudrate;
         
-        consoleTerminal.writeLine("Connected to device (Serial Mode).");
+        // consoleTerminal.writeLine("Connected to device (Serial Mode).");
         
         // 连接成功后立即启动串口监视
         // 增加短暂延迟，确保底层 readable 状态已更新
@@ -133,7 +133,7 @@ async function startSerialMonitor() {
     }
     
     keepReading = true;
-    serialMonitorTerminal.writeln(`\r\n[MONITOR] Started at ${currentBaudRate} baud.`);
+    // serialMonitorTerminal.writeln(`\r\n[MONITOR] Started at ${currentBaudRate} baud.`);
 
     // 异步启动读取循环
     readLoop();
@@ -174,7 +174,7 @@ async function stopSerialMonitor() {
         await monitorReader.cancel(); // 强制取消读取，使 getReader() 释放锁
         // releaseLock 会在 readLoop 的 finally 块中执行
     }
-    serialMonitorTerminal.writeln("\r\n[MONITOR] Stopped.");
+    // serialMonitorTerminal.writeln("\r\n[MONITOR] Stopped.");
 }
 
 /**
@@ -192,7 +192,7 @@ async function sendSerialData(data) {
     try {
         await writer.write(encoder.encode(data));
         // 可选：回显发送的内容
-        // serialMonitorTerminal.writeln(`[SENT] ${data}`); 
+        // serialMonitorTerminal.writeln(`[SENT] ${data.trim()}`); 
     } catch (error) {
         console.error("Send failed:", error);
     } finally {
