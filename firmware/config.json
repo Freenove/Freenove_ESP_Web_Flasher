@@ -99,12 +99,30 @@
       ]
     },
     {
+      "id": "FNK0112",
+      "name": "FNK0112",
+      "image": "firmware/FNK0112/FNK0112.png",
+      "firmwares": [
+        {
+          "id": "FNK0112",
+          "name": "NerdMiner-FNK0112 (1.54\" ST7789 IPS)",
+          "versions": [
+            {
+              "id": "V1.8.3",
+              "name": "V1.8.3",
+              "manifest_path": "firmware/FNK0112/firmwares/V1.8.3/V1.8.3.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "FNK0104",
       "name": "FNK0104",
       "image": "firmware/FNK0104/FNK0104.png",
       "firmwares": [
         {
-          "id": "NerdMiner-FNK0104",
+          "id": "FNK0104",
           "name": "NerdMiner-FNK0104",
           "versions": [
             {
@@ -116,13 +134,13 @@
         }
       ]
     },
-	{
+    {
       "id": "FNK0086",
       "name": "FNK0086",
       "image": "firmware/FNK0086/FNK0086.png",
       "firmwares": [
         {
-          "id": "NerdMiner-FNK0086",
+          "id": "FNK0086",
           "name": "NerdMiner-FNK0086",
           "versions": [
             {
