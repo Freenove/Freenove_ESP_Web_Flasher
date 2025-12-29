@@ -108,9 +108,9 @@
           "name": "NerdMiner-FNK0112 (1.54\" ST7789 IPS)",
           "versions": [
             {
-              "id": "V1.8.3",
-              "name": "V1.8.3",
-              "manifest_path": "firmware/FNK0112/firmwares/V1.8.3/V1.8.3.json"
+              "id": "v1.8.3",
+              "name": "v1.8.3",
+              "manifest_path": "firmware/FNK0112/firmwares/v1.8.3/v1.8.3.json"
             }
           ]
         }
