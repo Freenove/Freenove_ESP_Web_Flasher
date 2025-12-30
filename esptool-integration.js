@@ -71,13 +71,14 @@ async function connectToDevice(baudrate) {
 
         consoleTerminal.writeLine(`Connecting to serial port at ${baudrate}...`);
         await device.open({ baudRate: baudrate });
+        
         currentBaudRate = baudrate;
         
         // consoleTerminal.writeLine("Connected to device (Serial Mode).");
         
         // 连接成功后立即启动串口监视
-        // 增加短暂延迟，确保底层 readable 状态已更新
-        setTimeout(() => startSerialMonitor(), 100);
+        // 增加短暂延迟，确保底层 readable 状态已更新，且让端口稳定
+        setTimeout(() => startSerialMonitor(), 200);
         
         return true;
     } catch (error) {

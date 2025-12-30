@@ -265,6 +265,18 @@ document.addEventListener('DOMContentLoaded', () => {
     flashBtn.addEventListener('click', async () => {
         if (!isConnected) return; // 理论上disabled属性已阻止，但双重保险
 
+        // 自动打开控制台
+        if (terminalSection.classList.contains('hidden')) {
+            terminalSection.classList.remove('hidden');
+            toggleConsoleBtn.innerHTML = '<i class="fas fa-terminal"></i> Close Console';
+            fitAddon.fit();
+            
+            // 自动滚动到控制台区域
+            setTimeout(() => {
+                terminalSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
         flashBtn.disabled = true;
         connectBtn.disabled = true;
         serialPortInfoBtn.disabled = true;
