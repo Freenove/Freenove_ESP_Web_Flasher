@@ -12,7 +12,7 @@
             {
               "id": "v1.0",
               "name": "v1.0",
-              "manifest_path": "firmware/FNK0102A/firmwares/v1.0/v1.0.json"
+              "manifest_path": "firmware/FNK0102A/xiaozhi/v1.0/v1.0.json"
             }
           ]
         }
@@ -30,7 +30,7 @@
             {
               "id": "v1.0",
               "name": "v1.0",
-              "manifest_path": "firmware/FNK0102H/firmwares/v1.0/v1.0.json"
+              "manifest_path": "firmware/FNK0102H/xiaozhi/v1.0/v1.0.json"
             }
           ]
         }
@@ -48,7 +48,7 @@
             {
               "id": "v1.8.3",
               "name": "v1.8.3",
-              "manifest_path": "firmware/FNK0103/103B/v1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0103/103B/NerdMiner/v1.8.3/v1.8.3.json"
             }
           ]
         },
@@ -59,7 +59,7 @@
             {
               "id": "v1.8.3",
               "name": "v1.8.3",
-              "manifest_path": "firmware/FNK0103/103F/v1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0103/103F/NerdMiner/v1.8.3/v1.8.3.json"
             }
           ]
         },
@@ -70,7 +70,7 @@
             {
               "id": "v1.8.3",
               "name": "v1.8.3",
-              "manifest_path": "firmware/FNK0103/103L/v1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0103/103L/NerdMiner/v1.8.3/v1.8.3.json"
             }
           ]
         },
@@ -81,7 +81,7 @@
             {
               "id": "v1.8.3",
               "name": "v1.8.3",
-              "manifest_path": "firmware/FNK0103/103N/v1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0103/103N/NerdMiner/v1.8.3/v1.8.3.json"
             }
           ]
         },
@@ -92,7 +92,7 @@
             {
               "id": "v1.8.3",
               "name": "v1.8.3",
-              "manifest_path": "firmware/FNK0103/103S/v1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0103/103S/NerdMiner/v1.8.3/v1.8.3.json"
             }
           ]
         }
@@ -110,7 +110,7 @@
             {
               "id": "v1.8.3",
               "name": "v1.8.3",
-              "manifest_path": "firmware/FNK0112/firmwares/V1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0112/NerdMiner/V1.8.3/v1.8.3.json"
             }
           ]
         }
@@ -122,13 +122,24 @@
       "image": "firmware/FNK0104/FNK0104.png",
       "firmwares": [
         {
-          "id": "FNK0104",
+          "id": "NerdMiner-FNK0104",
           "name": "NerdMiner-FNK0104",
           "versions": [
             {
               "id": "V1.8.3",
               "name": "V1.8.3",
-              "manifest_path": "firmware/FNK0104/firmwares/V1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0104/NerdMiner/V1.8.3/v1.8.3.json"
+            }
+          ]
+        },
+		{
+          "id": "xiaozhi-FNK0104",
+          "name": "xiaozhi-FNK0104",
+          "versions": [
+            {
+              "id": "v2.0.5",
+              "name": "v2.0.5",
+              "manifest_path": "firmware/FNK0104/xiaozhi/v2.0.5/v2.0.5.json"
             }
           ]
         }
@@ -146,7 +157,7 @@
             {
               "id": "V1.8.3",
               "name": "V1.8.3",
-              "manifest_path": "firmware/FNK0086/firmwares/V1.8.3/v1.8.3.json"
+              "manifest_path": "firmware/FNK0086/NerdMiner/V1.8.3/v1.8.3.json"
             }
           ]
         }
