@@ -63,7 +63,7 @@
           "versions": [
             {
               "id": "v1.8.3",
-              "name": "v1.8.3",
+              "name": "v1.8.3 (About 330 KH/s)",
               "manifest_path": "firmware/FNK0103/103F/NerdMiner/v1.8.3/v1.8.3.json"
             },
 			{
@@ -79,7 +79,7 @@
           "versions": [
             {
               "id": "v1.8.3",
-              "name": "v1.8.3",
+              "name": "v1.8.3 (About 330 KH/s)",
               "manifest_path": "firmware/FNK0103/103L/NerdMiner/v1.8.3/v1.8.3.json"
             },
 			{
@@ -95,7 +95,7 @@
           "versions": [
             {
               "id": "v1.8.3",
-              "name": "v1.8.3",
+              "name": "v1.8.3 (About 330 KH/s)",
               "manifest_path": "firmware/FNK0103/103N/NerdMiner/v1.8.3/v1.8.3.json"
             },
 			{
@@ -111,7 +111,7 @@
           "versions": [
             {
               "id": "v1.8.3",
-              "name": "v1.8.3",
+              "name": "v1.8.3 (About 330 KH/s)",
               "manifest_path": "firmware/FNK0103/103S/NerdMiner/v1.8.3/v1.8.3.json"
             },
 			{
@@ -134,7 +134,7 @@
           "versions": [
             {
               "id": "v1.8.3",
-              "name": "v1.8.3",
+              "name": "v1.8.3 (About 330 KH/s)",
               "manifest_path": "firmware/FNK0112/NerdMiner/V1.8.3/v1.8.3.json"
             },
 			{
@@ -157,7 +157,7 @@
           "versions": [
             {
               "id": "V1.8.3",
-              "name": "V1.8.3",
+              "name": "v1.8.3 (About 330 KH/s)",
               "manifest_path": "firmware/FNK0104/NerdMiner/V1.8.3/v1.8.3.json"
             }
           ]
@@ -186,7 +186,7 @@
           "versions": [
             {
               "id": "V1.8.3",
-              "name": "V1.8.3",
+              "name": "v1.8.3 (About 330 KH/s)",
               "manifest_path": "firmware/FNK0086/NerdMiner/V1.8.3/v1.8.3.json"
             }
           ]
