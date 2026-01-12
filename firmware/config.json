@@ -174,24 +174,18 @@
           ]
         },
 		{
-          "id": "Multifunctionality",
-          "name": "Multifunctionality",
+          "id": "Sketch",
+          "name": "Sketch",
           "versions": [
             {
-              "id": "v1.0.0",
-              "name": "v1.0.0",
-              "manifest_path": "firmware/FNK0104/Multifunctionality/v1.0.0/v1.0.0.json"
-            }
-          ]
-        },
-		{
-          "id": "Echo",
-          "name": "Echo",
-          "versions": [
-            {
-              "id": "v1.0.0",
-              "name": "v1.0.0",
-              "manifest_path": "firmware/FNK0104/Echo/v1.0.0/v1.0.0.json"
+              "id": "Multifunctionality",
+              "name": "Sketch_18.1_Lvgl_Multifunctionality",
+              "manifest_path": "firmware/FNK0104/Sketch/Multifunctionality/Multifunctionality.json"
+            },
+			{
+              "id": "Echo",
+              "name": "Sketch_07.2_Echo",
+              "manifest_path": "firmware/FNK0104/Sketch/Echo/Echo.json"
             }
           ]
         }
