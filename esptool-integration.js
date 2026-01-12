@@ -352,7 +352,7 @@ async function startFlashing(selectedVersion, eraseFlash, flashBaudRate) {
             await device.setSignals({ dataTerminalReady: false, requestToSend: false });
 
             startSerialMonitor();
-            consoleTerminal.writeLine("Device ready (Double Reset completed).");
+            consoleTerminal.writeLine("Device ready");
         } catch (e) {
             console.error("Failed to restore serial connection:", e);
             consoleTerminal.writeLine("Note: Please manually reconnect if serial monitor is needed.");

@@ -172,6 +172,17 @@
               "manifest_path": "firmware/FNK0104/xiaozhi/v2.0.5/v2.0.5.json"
             }
           ]
+        },
+		{
+          "id": "Multifunctionality",
+          "name": "Multifunctionality",
+          "versions": [
+            {
+              "id": "v1.0.0",
+              "name": "v1.0.0",
+              "manifest_path": "firmware/FNK0104/Multifunctionality/v1.0.0/v1.0.0.json"
+            }
+          ]
         }
       ]
     },
