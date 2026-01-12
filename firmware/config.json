@@ -183,6 +183,17 @@
               "manifest_path": "firmware/FNK0104/Multifunctionality/v1.0.0/v1.0.0.json"
             }
           ]
+        },
+		{
+          "id": "Echo",
+          "name": "Echo",
+          "versions": [
+            {
+              "id": "v1.0.0",
+              "name": "v1.0.0",
+              "manifest_path": "firmware/FNK0104/Echo/v1.0.0/v1.0.0.json"
+            }
+          ]
         }
       ]
     },
