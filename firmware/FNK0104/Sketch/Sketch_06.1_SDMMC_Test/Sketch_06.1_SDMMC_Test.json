@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_06.1_SDMMC_Test",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_06.1_SDMMC_Test.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

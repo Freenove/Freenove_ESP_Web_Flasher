@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_03.1_Button_RGB",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_03.1_Button_RGB.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

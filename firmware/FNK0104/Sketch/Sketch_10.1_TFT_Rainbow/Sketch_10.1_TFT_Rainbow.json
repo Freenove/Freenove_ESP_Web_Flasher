@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_10.1_TFT_Rainbow",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_10.1_TFT_Rainbow.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

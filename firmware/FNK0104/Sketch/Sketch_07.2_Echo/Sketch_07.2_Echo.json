@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_07.2_Echo",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_07.2_Echo.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

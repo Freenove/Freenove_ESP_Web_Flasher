@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_08.2_BLE_RGB",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_08.2_BLE_RGB.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

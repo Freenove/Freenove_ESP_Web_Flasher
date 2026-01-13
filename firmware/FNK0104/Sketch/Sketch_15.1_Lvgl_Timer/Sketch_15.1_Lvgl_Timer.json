@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_15.1_Lvgl_Timer",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_15.1_Lvgl_Timer.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
