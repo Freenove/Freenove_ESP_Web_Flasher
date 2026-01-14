@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_17_Lvgl_Music",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_17_Lvgl_Music.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_07_TFT_Clock",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_07_TFT_Clock.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

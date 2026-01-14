@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_18_Lvgl_Heartrate",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_18_Lvgl_Heartrate.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

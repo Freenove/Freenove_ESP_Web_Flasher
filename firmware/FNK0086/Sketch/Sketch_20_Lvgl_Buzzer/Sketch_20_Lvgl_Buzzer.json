@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_20_Lvgl_Buzzer",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_20_Lvgl_Buzzer.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

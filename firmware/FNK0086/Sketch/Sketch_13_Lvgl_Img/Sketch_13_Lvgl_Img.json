@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_13_Lvgl_Img",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_13_Lvgl_Img.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

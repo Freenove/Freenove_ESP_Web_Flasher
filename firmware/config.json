@@ -157,7 +157,7 @@
           "versions": [
             {
               "id": "V1.8.3",
-              "name": "v1.8.3 (About 330 KH/s)",
+              "name": "v1.8.3 (About 260 KH/s)",
               "manifest_path": "firmware/FNK0104/NerdMiner/V1.8.3/V1.8.3.json"
             }
           ]
@@ -298,10 +298,122 @@
           "versions": [
             {
               "id": "V1.8.3",
-              "name": "v1.8.3 (About 330 KH/s)",
+              "name": "v1.8.3 (About 260 KH/s)",
               "manifest_path": "firmware/FNK0086/NerdMiner/V1.8.3/v1.8.3.json"
             }
           ]
+        },
+		{
+          "id": "Sketch",
+          "name": "Sketch",
+          "versions": 
+		  [
+			  {
+				"id": "Sketch_01_ADC_Battery",
+				"name": "Sketch_01_ADC_Battery",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_01_ADC_Battery/Sketch_01_ADC_Battery.json"
+			  },
+			  {
+				"id": "Sketch_02_WS2812",
+				"name": "Sketch_02_WS2812",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_02_WS2812/Sketch_02_WS2812.json"
+			  },
+			  {
+				"id": "Sketch_03_CameraWebServer",
+				"name": "Sketch_03_CameraWebServer",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_03_CameraWebServer/Sketch_03_CameraWebServer.json"
+			  },
+			  {
+				"id": "Sketch_04_SDMMC",
+				"name": "Sketch_04_SDMMC",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_04_SDMMC/Sketch_04_SDMMC.json"
+			  },
+			  {
+				"id": "Sketch_05_I2S_Audio",
+				"name": "Sketch_05_I2S_Audio",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_05_I2S_Audio/Sketch_05_I2S_Audio.json"
+			  },
+			  {
+				"id": "Sketch_06_HeartRate",
+				"name": "Sketch_06_HeartRate",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_06_HeartRate/Sketch_06_HeartRate.json"
+			  },
+			  {
+				"id": "Sketch_07_TFT_Clock",
+				"name": "Sketch_07_TFT_Clock",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_07_TFT_Clock/Sketch_07_TFT_Clock.json"
+			  },
+			  {
+				"id": "Sketch_08_Touch",
+				"name": "Sketch_08_Touch",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_08_Touch/Sketch_08_Touch.json"
+			  },
+			  {
+				"id": "Sketch_09_LVGL",
+				"name": "Sketch_09_LVGL",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_09_LVGL/Sketch_09_LVGL.json"
+			  },
+			  {
+				"id": "Sketch_10_LVGL_Label",
+				"name": "Sketch_10_LVGL_Label",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_10_LVGL_Label/Sketch_10_LVGL_Label.json"
+			  },
+			  {
+				"id": "Sketch_11_LVGL_Btn",
+				"name": "Sketch_11_LVGL_Btn",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_11_LVGL_Btn/Sketch_11_LVGL_Btn.json"
+			  },
+			  {
+				"id": "Sketch_12_Lvgl_Slider",
+				"name": "Sketch_12_Lvgl_Slider",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_12_Lvgl_Slider/Sketch_12_Lvgl_Slider.json"
+			  },
+			  {
+				"id": "Sketch_13_Lvgl_Img",
+				"name": "Sketch_13_Lvgl_Img",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_13_Lvgl_Img/Sketch_13_Lvgl_Img.json"
+			  },
+			  {
+				"id": "Sketch_14_Lvgl_Imgbtn",
+				"name": "Sketch_14_Lvgl_Imgbtn",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_14_Lvgl_Imgbtn/Sketch_14_Lvgl_Imgbtn.json"
+			  },
+			  {
+				"id": "Sketch_15_Lvgl_Camera",
+				"name": "Sketch_15_Lvgl_Camera",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_15_Lvgl_Camera/Sketch_15_Lvgl_Camera.json"
+			  },
+			  {
+				"id": "Sketch_16_Lvgl_Picture",
+				"name": "Sketch_16_Lvgl_Picture",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_16_Lvgl_Picture/Sketch_16_Lvgl_Picture.json"
+			  },
+			  {
+				"id": "Sketch_17_Lvgl_Music",
+				"name": "Sketch_17_Lvgl_Music",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_17_Lvgl_Music/Sketch_17_Lvgl_Music.json"
+			  },
+			  {
+				"id": "Sketch_18_Lvgl_Heartrate",
+				"name": "Sketch_18_Lvgl_Heartrate",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_18_Lvgl_Heartrate/Sketch_18_Lvgl_Heartrate.json"
+			  },
+			  {
+				"id": "Sketch_19_Lvgl_WS2812",
+				"name": "Sketch_19_Lvgl_WS2812",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_19_Lvgl_WS2812/Sketch_19_Lvgl_WS2812.json"
+			  },
+			  {
+				"id": "Sketch_20_Lvgl_Buzzer",
+				"name": "Sketch_20_Lvgl_Buzzer",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_20_Lvgl_Buzzer/Sketch_20_Lvgl_Buzzer.json"
+			  },
+			  {
+				"id": "Sketch_21_Lvgl_Multifunctionality",
+				"name": "Sketch_21_Lvgl_Multifunctionality",
+				"manifest_path": "firmware/FNK0086/Sketch/Sketch_21_Lvgl_Multifunctionality/Sketch_21_Lvgl_Multifunctionality.json"
+			  }
+		  ]
         }
       ]
     }

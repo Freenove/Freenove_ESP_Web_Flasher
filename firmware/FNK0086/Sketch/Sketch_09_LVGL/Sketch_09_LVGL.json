@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_09_LVGL",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_09_LVGL.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

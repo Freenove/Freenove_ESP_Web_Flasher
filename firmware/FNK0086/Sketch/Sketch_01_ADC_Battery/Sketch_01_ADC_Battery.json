@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_01_ADC_Battery",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_01_ADC_Battery.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

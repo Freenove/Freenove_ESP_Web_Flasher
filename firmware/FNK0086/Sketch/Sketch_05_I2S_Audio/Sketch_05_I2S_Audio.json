@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_05_I2S_Audio",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_05_I2S_Audio.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_21_Lvgl_Multifunctionality",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_21_Lvgl_Multifunctionality.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_15_Lvgl_Camera",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_15_Lvgl_Camera.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
