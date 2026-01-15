@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_05.1_WIFI_USART",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_05.1_WIFI_USART.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

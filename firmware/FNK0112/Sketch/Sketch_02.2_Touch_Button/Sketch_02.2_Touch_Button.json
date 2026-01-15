@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_02.2_Touch_Button",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_02.2_Touch_Button.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

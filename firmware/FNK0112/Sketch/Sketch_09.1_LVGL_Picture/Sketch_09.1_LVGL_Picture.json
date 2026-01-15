@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_09.1_LVGL_Picture",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_09.1_LVGL_Picture.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

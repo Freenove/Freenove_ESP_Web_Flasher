@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_08.1_LVGL_Touch",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_08.1_LVGL_Touch.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_11.1_LVGL_Game",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_11.1_LVGL_Game.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

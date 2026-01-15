@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_06.1_TFT_Display",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_06.1_TFT_Display.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

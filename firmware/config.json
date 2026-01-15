@@ -131,7 +131,8 @@
         {
           "id": "FNK0112",
           "name": "NerdMiner-FNK0112 (1.54\" ST7789 IPS)",
-          "versions": [
+          "versions": 
+		  [
             {
               "id": "v1.8.3",
               "name": "v1.8.3 (About 330 KH/s)",
@@ -143,6 +144,83 @@
               "manifest_path": "firmware/FNK0112/NerdMiner/v1.8.3.1/v1.8.3.1.json"
             }
           ]
+        },
+		{
+          "id": "FNK0112_Sketch",
+          "name": "Sketch",
+          "versions": 
+			[
+			  {
+				"id": "Sketch_01.1_SerialRW",
+				"name": "Sketch_01.1_SerialRW",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_01.1_SerialRW/Sketch_01.1_SerialRW.json"
+			  },
+			  {
+				"id": "Sketch_02.1_Touch_Test",
+				"name": "Sketch_02.1_Touch_Test",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_02.1_Touch_Test/Sketch_02.1_Touch_Test.json"
+			  },
+			  {
+				"id": "Sketch_02.2_Touch_Button",
+				"name": "Sketch_02.2_Touch_Button",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_02.2_Touch_Button/Sketch_02.2_Touch_Button.json"
+			  },
+			  {
+				"id": "Sketch_03.1_EEPROM",
+				"name": "Sketch_03.1_EEPROM",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_03.1_EEPROM/Sketch_03.1_EEPROM.json"
+			  },
+			  {
+				"id": "Sketch_04.1_BLE_USART",
+				"name": "Sketch_04.1_BLE_USART",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_04.1_BLE_USART/Sketch_04.1_BLE_USART.json"
+			  },
+			  {
+				"id": "Sketch_05.1_WIFI_USART",
+				"name": "Sketch_05.1_WIFI_USART",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_05.1_WIFI_USART/Sketch_05.1_WIFI_USART.json"
+			  },
+			  {
+				"id": "Sketch_06.1_TFT_Display",
+				"name": "Sketch_06.1_TFT_Display",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_06.1_TFT_Display/Sketch_06.1_TFT_Display.json"
+			  },
+			  {
+				"id": "Sketch_06.2_TFT_Picture",
+				"name": "Sketch_06.2_TFT_Picture",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_06.2_TFT_Picture/Sketch_06.2_TFT_Picture.json"
+			  },
+			  {
+				"id": "Sketch_06.3_TFT_Clock",
+				"name": "Sketch_06.3_TFT_Clock",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_06.3_TFT_Clock/Sketch_06.3_TFT_Clock.json"
+			  },
+			  {
+				"id": "Sketch_07.1_LVGL",
+				"name": "Sketch_07.1_LVGL",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_07.1_LVGL/Sketch_07.1_LVGL.json"
+			  },
+			  {
+				"id": "Sketch_08.1_LVGL_Touch",
+				"name": "Sketch_08.1_LVGL_Touch",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_08.1_LVGL_Touch/Sketch_08.1_LVGL_Touch.json"
+			  },
+			  {
+				"id": "Sketch_09.1_LVGL_Picture",
+				"name": "Sketch_09.1_LVGL_Picture",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_09.1_LVGL_Picture/Sketch_09.1_LVGL_Picture.json"
+			  },
+			  {
+				"id": "Sketch_10.1_LVGL_Timer",
+				"name": "Sketch_10.1_LVGL_Timer",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_10.1_LVGL_Timer/Sketch_10.1_LVGL_Timer.json"
+			  },
+			  {
+				"id": "Sketch_11.1_LVGL_Game",
+				"name": "Sketch_11.1_LVGL_Game",
+				"manifest_path": "firmware/FNK0112/Sketch/Sketch_11.1_LVGL_Game/Sketch_11.1_LVGL_Game.json"
+			  }
+			]
         }
       ]
     },
@@ -174,7 +252,7 @@
           ]
         },
 		{
-          "id": "Sketch",
+          "id": "FNK0104_Sketch",
           "name": "Sketch",
           "versions": 
 			[
@@ -304,7 +382,7 @@
           ]
         },
 		{
-          "id": "Sketch",
+          "id": "FNK0086_Sketch",
           "name": "Sketch",
           "versions": 
 		  [

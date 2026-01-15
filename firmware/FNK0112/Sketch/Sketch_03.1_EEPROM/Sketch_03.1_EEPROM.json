@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_03.1_EEPROM",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_03.1_EEPROM.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
