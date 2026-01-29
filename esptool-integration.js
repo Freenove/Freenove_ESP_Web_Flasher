@@ -55,6 +55,27 @@ let currentBaudRate = 115200; // 当前波特率
 // --- 核心功能：连接设备 (纯串口模式) ---
 
 /**
+ * 执行标准的 Hard Reset (进应用模式)
+ * 序列: DTR=0, RTS=1 (Reset) -> DTR=0, RTS=0 (Normal)
+ */
+async function hardReset() {
+    if (!device) return;
+    // consoleTerminal.writeLine("Performing Hard Reset...");
+    
+    // 1. Assert Reset (EN=0, IO0=1)
+    // DTR=0, RTS=1 -> EN=Low, IO0=High
+    await device.setSignals({ dataTerminalReady: false, requestToSend: true });
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // 2. Release Reset (EN=1, IO0=1)
+    // DTR=0, RTS=0 -> EN=High, IO0=High
+    await device.setSignals({ dataTerminalReady: false, requestToSend: false });
+    
+    // 延时让芯片启动
+    await new Promise(resolve => setTimeout(resolve, 200));
+}
+
+/**
  * 连接到设备并开始监视串口输出 (不复位芯片)。
  * @param {number} baudrate - 波特率
  */
@@ -64,7 +85,6 @@ async function connectToDevice(baudrate) {
             device = await navigator.serial.requestPort();
         }
 
-        // 如果端口已打开，先关闭 (防止重复打开)
         if (device.readable) {
            await device.close();
         }
@@ -72,13 +92,12 @@ async function connectToDevice(baudrate) {
         consoleTerminal.writeLine(`Connecting to serial port at ${baudrate}...`);
         await device.open({ baudRate: baudrate });
         
+        await device.setSignals({ dataTerminalReady: false, requestToSend: false });
+        
         currentBaudRate = baudrate;
         
-        // consoleTerminal.writeLine("Connected to device (Serial Mode).");
-        
         // 连接成功后立即启动串口监视
-        // 增加短暂延迟，确保底层 readable 状态已更新，且让端口稳定
-        setTimeout(() => startSerialMonitor(), 200);
+        setTimeout(() => startSerialMonitor(), 100);
         
         return true;
     } catch (error) {
@@ -134,7 +153,6 @@ async function startSerialMonitor() {
     }
     
     keepReading = true;
-    // serialMonitorTerminal.writeln(`\r\n[MONITOR] Started at ${currentBaudRate} baud.`);
 
     // 异步启动读取循环
     readLoop();
@@ -172,10 +190,8 @@ async function readLoop() {
 async function stopSerialMonitor() {
     keepReading = false;
     if (monitorReader) {
-        await monitorReader.cancel(); // 强制取消读取，使 getReader() 释放锁
-        // releaseLock 会在 readLoop 的 finally 块中执行
+        await monitorReader.cancel();
     }
-    // serialMonitorTerminal.writeln("\r\n[MONITOR] Stopped.");
 }
 
 /**
@@ -192,8 +208,6 @@ async function sendSerialData(data) {
     const writer = device.writable.getWriter();
     try {
         await writer.write(encoder.encode(data));
-        // 可选：回显发送的内容
-        // serialMonitorTerminal.writeln(`[SENT] ${data.trim()}`); 
     } catch (error) {
         console.error("Send failed:", error);
     } finally {
@@ -210,6 +224,9 @@ async function changeBaudRate(newBaudRate) {
     await stopSerialMonitor();
     await device.close();
     await device.open({ baudRate: newBaudRate });
+
+    await device.setSignals({ dataTerminalReady: false, requestToSend: false });
+    
     currentBaudRate = newBaudRate;
     startSerialMonitor();
 }
@@ -307,10 +324,10 @@ async function startFlashing(selectedVersion, eraseFlash, flashBaudRate) {
         await esploader.writeFlash({
             fileArray: fileArray,
             flashSize: "detect",
-            eraseAll: false, // 之前已经处理过擦除了
+            eraseAll: false,
             compress: true,
-            flashMode: "dio", // 强制使用 DIO 模式，防止部分板子因 QIO 模式卡死
-            flashFreq: "40m", // 强制使用 40MHz
+            flashMode: "dio", // 使用 DIO 模式
+            flashFreq: "40m", // 使用 40MHz
             reportProgress: progressBar,
             calculateMD5Hash: (image) => window.CryptoJS.MD5(window.CryptoJS.enc.Latin1.parse(image)).toString(),
         });
@@ -320,7 +337,7 @@ async function startFlashing(selectedVersion, eraseFlash, flashBaudRate) {
     } catch (error) {
         console.error("Flashing failed:", error);
         consoleTerminal.writeLine(`\n\rFlashing failed: ${error.message}`);
-        throw error; // 向上抛出，以便 UI 处理
+        throw error;
     } finally {
         // 6. 清理：断开 ESPLoader 连接
         if (transport) {
@@ -329,27 +346,13 @@ async function startFlashing(selectedVersion, eraseFlash, flashBaudRate) {
             esploader = null;
         }
 
-        // 7. 恢复：重新连接串口并执行“双重复位”策略
+        // 7. 恢复：重新连接串口并执行“标准 Hard Reset”
         try {
             consoleTerminal.writeLine("Restoring serial connection...");
             await device.open({ baudRate: monitorBaudRate });
-
-            // --- 第一次复位 ---
-            consoleTerminal.writeLine("Performing 1st Hard Reset...");
-            await device.setSignals({ dataTerminalReady: false, requestToSend: true });
-            await new Promise(resolve => setTimeout(resolve, 100));
-            await device.setSignals({ dataTerminalReady: false, requestToSend: false });
             
-            // --- 等待 3 秒 ---
-            await new Promise(resolve => setTimeout(resolve, 3000));
-
-            // --- 第二次复位 ---
-            await device.setSignals({ dataTerminalReady: false, requestToSend: true });
-            await new Promise(resolve => setTimeout(resolve, 100));
-            await device.setSignals({ dataTerminalReady: false, requestToSend: false });
-            
-            // 确保信号释放
-            await device.setSignals({ dataTerminalReady: false, requestToSend: false });
+            // 使用标准的 Hard Reset 方法
+            await hardReset();
 
             startSerialMonitor();
             consoleTerminal.writeLine("Device ready");
@@ -378,8 +381,8 @@ function getConnectedPort() {
 
 // 导出模块
 export {
-    connectToDevice,     // 替代 initESPLoader
-    disconnectDevice,    // 替代 disconnectESPLoader
+    connectToDevice,     
+    disconnectDevice,    
     startFlashing,
     getSerialPortInfo,
     getConnectedPort,
@@ -388,8 +391,8 @@ export {
     changeBaudRate,
     serialMonitorTerminal,
     monitorFitAddon,
-    startSerialMonitor,  // 现在内部自动管理，但也可以暴露
-    stopSerialMonitor,   // 暴露以供模态框关闭时调用
-    sendSerialData,       // 新增发送功能
-    clearSerialTerminal   // 新增清空功能
+    startSerialMonitor, 
+    stopSerialMonitor,  
+    sendSerialData,     
+    clearSerialTerminal 
 };
