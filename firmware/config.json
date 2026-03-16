@@ -197,12 +197,12 @@
 			{
               "id": "v1.8.3.1",
               "name": "v1.8.3.1 (About 630 KH/s)",
-              "manifest_path": "firmware/FNK0112/NerdMiner/v1.8.3.1/v1.8.3.1.json"
+              "manifest_path": "firmware/FNK0112/NerdMiner/V1.8.3.1/v1.8.3.1.json"
             },
 			{
               "id": "v1.8.3.2",
               "name": "v1.8.3.2 (About 630 KH/s)",
-              "manifest_path": "firmware/FNK0112/NerdMiner/v1.8.3.2/v1.8.3.2.json"
+              "manifest_path": "firmware/FNK0112/NerdMiner/V1.8.3.2/v1.8.3.2.json"
             }
           ]
         },
