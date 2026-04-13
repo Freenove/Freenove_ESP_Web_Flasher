@@ -555,6 +555,30 @@
 		  ]
         }
       ]
+    },
+	{
+      "id": "FNK0090",
+      "name": "FNK0090",
+      "image": "firmware/FNK0090/FNK0090.png",
+      "firmwares": [
+		{
+          "id": "FNK0090_Sketch",
+          "name": "Sketch",
+          "versions": 
+		  [
+			  {
+				"id": "Sketch_01.1_Blink",
+				"name": "Sketch_01.1_Blink",
+				"manifest_path": "firmware/FNK0090/Sketch/Sketch_01.1_Blink/Sketch_01.1_Blink.json"
+			  },
+			  {
+				"id": "Sketch_02.1_WS2812",
+				"name": "Sketch_02.1_WS2812",
+				"manifest_path": "firmware/FNK0090/Sketch/Sketch_02.1_WS2812/Sketch_02.1_WS2812.json"
+			  }
+		  ]
+        }
+      ]
     }
   ]
 }
