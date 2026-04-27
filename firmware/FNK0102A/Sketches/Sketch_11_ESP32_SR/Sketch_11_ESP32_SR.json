@@ -1,0 +1,19 @@
+{
+  "version": "Sketch_11_ESP32_SR",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_11_ESP32_SR.bin",
+          "offset": 0
+        },
+		{
+          "path": "srmodels.bin",
+          "offset": 0xD10000
+        }
+      ]
+    }
+  ]
+}

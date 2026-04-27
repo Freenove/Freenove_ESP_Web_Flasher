@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_10_1_Record_To_WAV",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_10_1_Record_To_WAV.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

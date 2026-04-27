@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_03_1_Button_Value",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_03_1_Button_Value.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

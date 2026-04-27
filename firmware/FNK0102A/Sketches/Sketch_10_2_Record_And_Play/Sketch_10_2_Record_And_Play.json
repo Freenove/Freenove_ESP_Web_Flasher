@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_10_2_Record_And_Play",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_10_2_Record_And_Play.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

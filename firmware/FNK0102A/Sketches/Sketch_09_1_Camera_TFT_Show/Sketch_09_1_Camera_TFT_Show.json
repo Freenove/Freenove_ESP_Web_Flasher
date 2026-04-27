@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_09_1_Camera_TFT_Show",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_09_1_Camera_TFT_Show.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

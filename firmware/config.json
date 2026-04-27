@@ -579,6 +579,25 @@
 		  ]
         }
       ]
+    },
+	{
+      "id": "FNK0060",
+      "name": "FNK0060",
+      "image": "firmware/FNK0060/FNK0060.png",
+      "firmwares": [
+		{
+          "id": "FNK0060_Sketch",
+          "name": "Sketch",
+          "versions": 
+		  [
+			  {
+				"id": "Sketch_6.1_CameraWebServer",
+				"name": "Sketch_6.1_CameraWebServer",
+				"manifest_path": "firmware/FNK0060/Sketch/Sketch_6.1_CameraWebServer/Sketch_6.1_CameraWebServer.json"
+			  }
+		  ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_02_1_Battery_Volts",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_02_1_Battery_Volts.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

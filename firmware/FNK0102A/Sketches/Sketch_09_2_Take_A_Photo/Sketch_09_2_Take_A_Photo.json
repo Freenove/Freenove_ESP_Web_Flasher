@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_09_2_Take_A_Photo",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_09_2_Take_A_Photo.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_01_LedPixel_RGBW",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_01_LedPixel_RGBW.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

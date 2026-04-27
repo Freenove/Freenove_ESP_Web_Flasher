@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_17_Lvgl_Sound_Recorder",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_17_Lvgl_Sound_Recorder.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
