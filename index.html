@@ -172,17 +172,25 @@
             </div>
             <!-- 模态框主体内容 -->
             <div class="modal-main">
-                <!-- 左侧导航箭头 -->
-                <button class="modal-nav-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
-                <!-- 设备轮播区域 -->
-                <div class="device-carousel">
+                <!-- 搜索和过滤栏 -->
+                <div class="modal-filter-bar">
+                    <div class="chip-filters">
+                        <button class="filter-btn active" data-chip="all">All</button>
+                        <button class="filter-btn" data-chip="ESP32-S3">ESP32-S3</button>
+                        <button class="filter-btn" data-chip="ESP32">ESP32</button>
+                    </div>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="device-search-input" placeholder="Search devices...">
+                    </div>
+                </div>
+                <!-- 设备列表区域 -->
+                <div class="device-container">
                     <!-- 设备列表，由JavaScript动态注入 -->
                     <div id="device-list" class="device-list">
                         <!-- Device items will be injected by JS -->
                     </div>
                 </div>
-                <!-- 右侧导航箭头 -->
-                <button class="modal-nav-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </div>

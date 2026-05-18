@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const deviceModal = document.getElementById('device-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
     const deviceList = document.getElementById('device-list');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
+    const deviceSearchInput = document.getElementById('device-search-input');
+    const filterBtns = document.querySelectorAll('.filter-btn');
 
     // 串口信息模态框元素
     const serialInfoModal = document.getElementById('serial-info-modal');
@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedFirmware = null;
     let selectedVersion = null;
     let isConnected = false;
+    let currentChipFilter = 'all';
+    let currentSearchQuery = '';
 
     // --- 功能函数 ---
 
@@ -54,13 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
         modalElement.classList.toggle('is-visible');
     }
     
-    function renderDeviceCarousel() {
+    function filterDevices() {
+        if (!appConfig || !appConfig.devices) return [];
+        
+        return appConfig.devices.filter(device => {
+            const matchesChip = currentChipFilter === 'all' || device.chip === currentChipFilter;
+            const matchesSearch = device.name.toLowerCase().includes(currentSearchQuery.toLowerCase()) || 
+                                 (device.chip && device.chip.toLowerCase().includes(currentSearchQuery.toLowerCase()));
+            return matchesChip && matchesSearch;
+        });
+    }
+
+    function renderDeviceList() {
         if (!appConfig || !appConfig.devices) {
             console.error("Configuration not loaded or has no devices.");
             return;
         }
+        
+        const filteredDevices = filterDevices();
         deviceList.innerHTML = '';
-        appConfig.devices.forEach(device => {
+        
+        if (filteredDevices.length === 0) {
+            deviceList.innerHTML = '<div class="no-results">No devices found matching your criteria.</div>';
+            return;
+        }
+
+        filteredDevices.forEach(device => {
             const item = document.createElement('div');
             item.className = 'device-item';
             item.dataset.deviceId = device.id;
@@ -69,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${device.image || 'freenove.ico'}" alt="${device.name}" class="device-image-placeholder" />
                 </div>
                 <span class="device-name">${device.name}</span>
+                <span class="device-chip-badge">${device.chip || 'Unknown'}</span>
             `;
             item.addEventListener('click', () => handleDeviceSelection(device));
             deviceList.appendChild(item);
@@ -197,11 +219,23 @@ document.addEventListener('DOMContentLoaded', () => {
         setTheme(currentTheme === 'light' ? 'dark' : 'light');
     });
 
-    leftArrow.addEventListener('click', () => {
-        deviceList.scrollBy({ left: -300, behavior: 'smooth' });
+    // 搜索输入监听
+    deviceSearchInput.addEventListener('input', (e) => {
+        currentSearchQuery = e.target.value;
+        renderDeviceList();
     });
-    rightArrow.addEventListener('click', () => {
-        deviceList.scrollBy({ left: 300, behavior: 'smooth' });
+
+    // 芯片筛选按钮监听
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // 更新按钮状态
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 更新过滤并重新渲染
+            currentChipFilter = btn.dataset.chip;
+            renderDeviceList();
+        });
     });
 
     firmwareSelect.addEventListener('change', () => {
@@ -370,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             appConfig = await response.json();
-            renderDeviceCarousel();
+            renderDeviceList();
             updateButtonStates();
         } catch (error) {
             console.error('Failed to load or parse firmware/config.json:', error);
