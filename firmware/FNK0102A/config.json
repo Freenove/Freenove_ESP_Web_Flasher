@@ -1,0 +1,29 @@
+{
+  "id": "FNK0102A",
+  "chip": "ESP32-S3",
+  "name": "FNK0102A",
+  "firmwares": [
+    {
+      "id": "Xiaozhi-1.14inch",
+      "name": "Xiaozhi-1.14inch",
+      "versions": [
+        {
+          "id": "v1.0",
+          "name": "v1.0",
+          "manifest_path": "firmware/FNK0102A/xiaozhi/v1.0/v1.0.json"
+        }
+      ]
+    },
+    {
+      "id": "OpenAi-1.14inch",
+      "name": "OpenAi-1.14inch",
+      "versions": [
+        {
+          "id": "v1.0",
+          "name": "v1.0",
+          "manifest_path": "firmware/FNK0102A/openai/v1.0/v1.0.json"
+        }
+      ]
+    }
+  ]
+}

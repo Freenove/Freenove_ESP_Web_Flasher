@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_02.1_LedPixel",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_02.1_LedPixel.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

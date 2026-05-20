@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_09.1_WiFi_Web_Servers_LED",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_09.1_WiFi_Web_Servers_LED.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

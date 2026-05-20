@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_19.1_LVGL_Arduino",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_19.1_LVGL_Arduino.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

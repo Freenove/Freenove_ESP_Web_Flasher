@@ -1,0 +1,18 @@
+{
+  "id": "FNK0060",
+  "chip": "ESP32",
+  "name": "FNK0060",
+  "firmwares": [
+    {
+      "id": "FNK0060_Sketch",
+      "name": "Sketch",
+      "versions": [
+        {
+          "id": "Sketch_6.1_CameraWebServer",
+          "name": "Sketch_6.1_CameraWebServer",
+          "manifest_path": "firmware/FNK0060/Sketch/Sketch_6.1_CameraWebServer/Sketch_6.1_CameraWebServer.json"
+        }
+      ]
+    }
+  ]
+}

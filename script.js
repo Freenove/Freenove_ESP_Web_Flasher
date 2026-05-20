@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function handleDeviceSelection(device) {
+    async function handleDeviceSelection(device) {
         selectedDevice = device;
         selectedFirmware = null;
         selectedVersion = null;
@@ -105,17 +105,39 @@ document.addEventListener('DOMContentLoaded', () => {
         selectDeviceBtn.innerHTML = `<span>${device.name}</span>`;
         selectDeviceBtn.classList.add('selected');
 
+        // 如果设备已有固件信息（兼容旧格式），直接渲染
         if (device.firmwares && device.firmwares.length > 0) {
             populateDropdown(firmwareSelect, device.firmwares, 'Select firmware');
             firmwareSelect.disabled = false;
             step2.classList.add('active');
-        } else {
-            populateDropdown(firmwareSelect, [], 'No firmware available');
-            populateDropdown(versionSelect, [], 'Select version');
-            firmwareSelect.disabled = true;
-            versionSelect.disabled = true;
-            step2.classList.remove('active');
-            step3.classList.remove('active');
+        } 
+        // 否则，根据 config_path 动态加载该设备的详细配置
+        else if (device.config_path) {
+            try {
+                selectDeviceBtn.innerHTML = `<span>${device.name} (Loading...)</span>`;
+                const response = await fetch(device.config_path);
+                if (!response.ok) throw new Error("Failed to load device config");
+                const deviceDetail = await response.json();
+                
+                selectedDevice.firmwares = deviceDetail.firmwares;
+                selectDeviceBtn.innerHTML = `<span>${device.name}</span>`;
+
+                if (selectedDevice.firmwares && selectedDevice.firmwares.length > 0) {
+                    populateDropdown(firmwareSelect, selectedDevice.firmwares, 'Select firmware');
+                    firmwareSelect.disabled = false;
+                    step2.classList.add('active');
+                } else {
+                    populateDropdown(firmwareSelect, [], 'No firmware available');
+                    firmwareSelect.disabled = true;
+                    step2.classList.remove('active');
+                }
+            } catch (error) {
+                console.error("Error loading device detail:", error);
+                selectDeviceBtn.innerHTML = `<span>${device.name} (Load Error)</span>`;
+                populateDropdown(firmwareSelect, [], 'Error loading configuration');
+                firmwareSelect.disabled = true;
+                step2.classList.remove('active');
+            }
         }
         
         populateDropdown(versionSelect, [], 'Select version');

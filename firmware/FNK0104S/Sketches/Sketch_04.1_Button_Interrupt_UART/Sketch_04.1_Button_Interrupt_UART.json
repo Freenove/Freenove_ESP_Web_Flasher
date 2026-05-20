@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_04.1_Button_Interrupt_UART",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_04.1_Button_Interrupt_UART.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

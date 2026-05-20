@@ -407,7 +407,7 @@ body.light-mode .filter-btn.active {
     flex-grow: 1;
     overflow-y: auto;
     padding-right: 0.5rem;
-    max-height: 535px;
+    max-height: 540px;
 }
 
 /* 自定义滚动条 */
@@ -431,9 +431,9 @@ body.light-mode .filter-btn.active {
 .device-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* 改为左对齐，多行时更整齐 */
+    justify-content: flex-start; /* 改为左对齐，多行时更整齐 */
     gap: 2rem; /* 稍微缩小间距以适应两行布局 */
-    padding: 1rem 0;
+    padding: 1rem 5rem;
 }
 
 .device-item {

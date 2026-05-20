@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_02.2_Rainbow",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_02.2_Rainbow.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
