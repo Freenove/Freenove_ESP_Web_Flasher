@@ -1,0 +1,149 @@
+{
+  "id": "FNK0114F",
+  "chip": "ESP32",
+  "name": "FNK0114F",
+  "firmwares": [
+    {
+      "id": "FNK0114F",
+      "name": "NerdMiner-FNK0114F (2.8\" ILI9341 TN)",
+      "versions": [
+        {
+          "id": "v1.8.3.0",
+          "name": "v1.8.3.0 (About 330 KH/s)",
+          "manifest_path": "firmware/FNK0114F/NerdMiner/v1.8.3/v1.8.3.json"
+        },
+        {
+          "id": "v1.8.3.1",
+          "name": "v1.8.3.1 (About 630 KH/s)",
+          "manifest_path": "firmware/FNK0114F/NerdMiner/v1.8.3.1/v1.8.3.1.json"
+        },
+        {
+          "id": "v1.8.3.2",
+          "name": "v1.8.3.2 (About 630 KH/s)",
+          "manifest_path": "firmware/FNK0114F/NerdMiner/v1.8.3.2/v1.8.3.2.json"
+        }
+      ]
+    },
+	{
+      "id": "FNK0114_Sketch",
+      "name": "Sketch",
+      "versions": [
+		{
+		  "id": "Sketch_01.1_SerialRW",
+		  "name": "Sketch_01.1_SerialRW",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_01.1_SerialRW/Sketch_01.1_SerialRW.json"
+		},
+		{
+		  "id": "Sketch_02.1_RGB",
+		  "name": "Sketch_02.1_RGB",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_02.1_RGB/Sketch_02.1_RGB.json"
+		},
+		{
+		  "id": "Sketch_02.2_PWM_RGB",
+		  "name": "Sketch_02.2_PWM_RGB",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_02.2_PWM_RGB/Sketch_02.2_PWM_RGB.json"
+		},
+		{
+		  "id": "Sketch_03.1_Button_RGB",
+		  "name": "Sketch_03.1_Button_RGB",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_03.1_Button_RGB/Sketch_03.1_Button_RGB.json"
+		},
+		{
+		  "id": "Sketch_04.1_Button_Interrupt_UART",
+		  "name": "Sketch_04.1_Button_Interrupt_UART",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_04.1_Button_Interrupt_UART/Sketch_04.1_Button_Interrupt_UART.json"
+		},
+		{
+		  "id": "Sketch_05.1_Battery_Voltage",
+		  "name": "Sketch_05.1_Battery_Voltage",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_05.1_Battery_Voltage/Sketch_05.1_Battery_Voltage.json"
+		},
+		{
+		  "id": "Sketch_06.1_SD_Test",
+		  "name": "Sketch_06.1_SD_Test",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_06.1_SD_Test/Sketch_06.1_SD_Test.json"
+		},
+		{
+		  "id": "Sketch_07.1_Play_MP3_SD_by_DAC",
+		  "name": "Sketch_07.1_Play_MP3_SD_by_DAC",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_07.1_Play_MP3_SD_by_DAC/Sketch_07.1_Play_MP3_SD_by_DAC.json"
+		},
+		{
+		  "id": "Sketch_08.1_BLE_USART",
+		  "name": "Sketch_08.1_BLE_USART",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_08.1_BLE_USART/Sketch_08.1_BLE_USART.json"
+		},
+		{
+		  "id": "Sketch_08.2_BLE_RGB",
+		  "name": "Sketch_08.2_BLE_RGB",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_08.2_BLE_RGB/Sketch_08.2_BLE_RGB.json"
+		},
+		{
+		  "id": "Sketch_09.1_WiFi_Web_Servers_LED",
+		  "name": "Sketch_09.1_WiFi_Web_Servers_LED",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_09.1_WiFi_Web_Servers_LED/Sketch_09.1_WiFi_Web_Servers_LED.json"
+		},
+		{
+		  "id": "Sketch_10.1_TFT_Rainbow",
+		  "name": "Sketch_10.1_TFT_Rainbow",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_10.1_TFT_Rainbow/Sketch_10.1_TFT_Rainbow.json"
+		},
+		{
+		  "id": "Sketch_10.2_Flash_Jpg_DMA",
+		  "name": "Sketch_10.2_Flash_Jpg_DMA",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_10.2_Flash_Jpg_DMA/Sketch_10.2_Flash_Jpg_DMA.json"
+		},
+		{
+		  "id": "Sketch_10.3_SD_Jpg",
+		  "name": "Sketch_10.3_SD_Jpg",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_10.3_SD_Jpg/Sketch_10.3_SD_Jpg.json"
+		},
+		{
+		  "id": "Sketch_11.1_TFT_Touch_Calibrate_2.4_2.8_Inch",
+		  "name": "Sketch_11.1_TFT_Touch_Calibrate_2.4_2.8_Inch",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_11.1_TFT_Touch_Calibrate_2.4_2.8_Inch/Sketch_11.1_TFT_Touch_Calibrate_2.4_2.8_Inch.json"
+		},
+		{
+		  "id": "Sketch_12.1_TFT_Touch_Draw_2.4_2.8_Inch",
+		  "name": "Sketch_12.1_TFT_Touch_Draw_2.4_2.8_Inch",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_12.1_TFT_Touch_Draw_2.4_2.8_Inch/Sketch_12.1_TFT_Touch_Draw_2.4_2.8_Inch.json"
+		},
+		{
+		  "id": "Sketch_13.1_LVGL",
+		  "name": "Sketch_13.1_LVGL",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_13.1_LVGL/Sketch_13.1_LVGL.json"
+		},
+		{
+		  "id": "Sketch_14.1_Lvgl_Picture",
+		  "name": "Sketch_14.1_Lvgl_Picture",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_14.1_Lvgl_Picture/Sketch_14.1_Lvgl_Picture.json"
+		},
+		{
+		  "id": "Sketch_15.1_Lvgl_Timer",
+		  "name": "Sketch_15.1_Lvgl_Timer",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_15.1_Lvgl_Timer/Sketch_15.1_Lvgl_Timer.json"
+		},
+		{
+		  "id": "Sketch_16.1_Lvgl_RGB",
+		  "name": "Sketch_16.1_Lvgl_RGB",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_16.1_Lvgl_RGB/Sketch_16.1_Lvgl_RGB.json"
+		},
+		{
+		  "id": "Sketch_17.1_Lvgl_Music",
+		  "name": "Sketch_17.1_Lvgl_Music",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_17.1_Lvgl_Music/Sketch_17.1_Lvgl_Music.json"
+		},
+		{
+		  "id": "Sketch_18.1_Lvgl_Multifunctionality",
+		  "name": "Sketch_18.1_Lvgl_Multifunctionality",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_18.1_Lvgl_Multifunctionality/Sketch_18.1_Lvgl_Multifunctionality.json"
+		},
+		{
+		  "id": "Sketch_19.1_LVGL_Arduino",
+		  "name": "Sketch_19.1_LVGL_Arduino",
+		  "manifest_path": "firmware/FNK0114F/Sketch/Sketch_19.1_LVGL_Arduino/Sketch_19.1_LVGL_Arduino.json"
+		}
+	  ]
+	}
+  ]
+}

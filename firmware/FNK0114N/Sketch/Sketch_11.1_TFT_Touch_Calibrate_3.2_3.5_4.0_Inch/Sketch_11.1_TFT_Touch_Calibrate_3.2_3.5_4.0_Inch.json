@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_11.1_TFT_Touch_Calibrate_3.2_3.5_4.0_Inch",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_11.1_TFT_Touch_Calibrate_3.2_3.5_4.0_Inch.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_12.2_TFT_Touch_Draw_3.2_Inch",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_12.2_TFT_Touch_Draw_3.2_Inch.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

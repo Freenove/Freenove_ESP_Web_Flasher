@@ -1,5 +1,26 @@
 {
   "devices": [
+	{
+      "id": "FNK0060",
+      "chip": "ESP32",
+      "name": "FNK0060",
+      "image": "firmware/FNK0060/FNK0060.png",
+      "config_path": "firmware/FNK0060/config.json"
+    },
+    {
+      "id": "FNK0090",
+      "chip": "ESP32",
+      "name": "FNK0090",
+      "image": "firmware/FNK0090/FNK0090.png",
+      "config_path": "firmware/FNK0090/config.json"
+    },
+	{
+      "id": "FNK0086",
+      "chip": "ESP32-S3",
+      "name": "FNK0086",
+      "image": "firmware/FNK0086/FNK0086.png",
+      "config_path": "firmware/FNK0086/config.json"
+    },
     {
       "id": "FNK0102A",
       "chip": "ESP32-S3",
@@ -13,20 +34,6 @@
       "name": "FNK0102H",
       "image": "firmware/FNK0102H/FNK0102H.png",
       "config_path": "firmware/FNK0102H/config.json"
-    },
-    {
-      "id": "FNK0103",
-      "chip": "ESP32",
-      "name": "FNK0103",
-      "image": "firmware/FNK0103/FNK0103.png",
-      "config_path": "firmware/FNK0103/config.json"
-    },
-    {
-      "id": "FNK0112",
-      "chip": "ESP32",
-      "name": "FNK0112",
-      "image": "firmware/FNK0112/FNK0112.png",
-      "config_path": "firmware/FNK0112/config.json"
     },
     {
       "id": "FNK0104AB",
@@ -49,26 +56,54 @@
       "image": "firmware/FNK0104S/FNK0104S.png",
       "config_path": "firmware/FNK0104S/config.json"
     },
-    {
-      "id": "FNK0086",
-      "chip": "ESP32-S3",
-      "name": "FNK0086",
-      "image": "firmware/FNK0086/FNK0086.png",
-      "config_path": "firmware/FNK0086/config.json"
-    },
-    {
-      "id": "FNK0090",
+	{
+      "id": "FNK0112",
       "chip": "ESP32",
-      "name": "FNK0090",
-      "image": "firmware/FNK0090/FNK0090.png",
-      "config_path": "firmware/FNK0090/config.json"
+      "name": "FNK0112",
+      "image": "firmware/FNK0112/FNK0112.png",
+      "config_path": "firmware/FNK0112/config.json"
     },
-    {
-      "id": "FNK0060",
+	{
+      "id": "FNK0114A",
       "chip": "ESP32",
-      "name": "FNK0060",
-      "image": "firmware/FNK0060/FNK0060.png",
-      "config_path": "firmware/FNK0060/config.json"
+      "name": "FNK0114A",
+      "image": "firmware/FNK0114A/FNK0114A.png",
+      "config_path": "firmware/FNK0114A/config.json"
+    },
+	{
+      "id": "FNK0114B",
+      "chip": "ESP32",
+      "name": "FNK0114B",
+      "image": "firmware/FNK0114B/FNK0114B.png",
+      "config_path": "firmware/FNK0114B/config.json"
+    },
+	{
+      "id": "FNK0114F",
+      "chip": "ESP32",
+      "name": "FNK0114F",
+      "image": "firmware/FNK0114F/FNK0114F.png",
+      "config_path": "firmware/FNK0114F/config.json"
+    },
+	{
+      "id": "FNK0114L",
+      "chip": "ESP32",
+      "name": "FNK0114L",
+      "image": "firmware/FNK0114L/FNK0114L.png",
+      "config_path": "firmware/FNK0114L/config.json"
+    },
+	{
+      "id": "FNK0114N",
+      "chip": "ESP32",
+      "name": "FNK0114N",
+      "image": "firmware/FNK0114N/FNK0114N.png",
+      "config_path": "firmware/FNK0114N/config.json"
+    },
+	{
+      "id": "FNK0114S",
+      "chip": "ESP32",
+      "name": "FNK0114S",
+      "image": "firmware/FNK0114S/FNK0114S.png",
+      "config_path": "firmware/FNK0114S/config.json"
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_07.1_Play_MP3_SD_by_DAC",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_07.1_Play_MP3_SD_by_DAC.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
