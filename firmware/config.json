@@ -35,6 +35,13 @@
       "image": "firmware/FNK0102H/FNK0102H.png",
       "config_path": "firmware/FNK0102H/config.json"
     },
+	{
+      "id": "FNK0103",
+      "chip": "ESP32",
+      "name": "FNK0103",
+      "image": "firmware/FNK0103/FNK0103.png",
+      "config_path": "firmware/FNK0103/config.json"
+    },
     {
       "id": "FNK0104AB",
       "chip": "ESP32-S3",

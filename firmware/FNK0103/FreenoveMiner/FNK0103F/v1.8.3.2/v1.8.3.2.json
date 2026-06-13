@@ -1,0 +1,15 @@
+{
+  "version": "1.8.3.2",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Freenove_Miner-FNK0103F.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
