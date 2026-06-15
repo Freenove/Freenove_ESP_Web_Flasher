@@ -5,7 +5,7 @@
   "firmwares": [
     {
       "id": "FNK0086",
-      "name": "NerdMiner-FNK0086",
+      "name": "FreenoveMiner-FNK0086",
       "versions": [
         {
           "id": "V1.8.3",
