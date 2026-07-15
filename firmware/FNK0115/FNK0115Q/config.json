@@ -1,0 +1,118 @@
+{
+  "id": "FNK0115Q",
+  "chip": "ESP32-S3",
+  "name": "FNK0115Q",
+  "firmwares": [
+	{
+      "id": "FNK0115Q_Sketch",
+      "name": "Sketches",
+      "versions": [
+	  {
+		"id": "Sketch_01.1_SerialRW",
+		"name": "Sketch_01.1_SerialRW",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_01.1_SerialRW/Sketch_01.1_SerialRW.json"
+	  },
+	  {
+		"id": "Sketch_02.1_Button",
+		"name": "Sketch_02.1_Button",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_02.1_Button/Sketch_02.1_Button.json"
+	  },
+	  {
+		"id": "Sketch_03.1_EEPROM",
+		"name": "Sketch_03.1_EEPROM",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_03.1_EEPROM/Sketch_03.1_EEPROM.json"
+	  },
+	  {
+		"id": "Sketch_04.1_SD_Test",
+		"name": "Sketch_04.1_SD_Test",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_04.1_SD_Test/Sketch_04.1_SD_Test.json"
+	  },
+	  {
+		"id": "Sketch_05.1_BLE_USART",
+		"name": "Sketch_05.1_BLE_USART",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_05.1_BLE_USART/Sketch_05.1_BLE_USART.json"
+	  },
+	  {
+		"id": "Sketch_06.1_WIFI_USART",
+		"name": "Sketch_06.1_WIFI_USART",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_06.1_WIFI_USART/Sketch_06.1_WIFI_USART.json"
+	  },
+	  {
+		"id": "Sketch_07.1_WIFI_NTP",
+		"name": "Sketch_07.1_WIFI_NTP",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_07.1_WIFI_NTP/Sketch_07.1_WIFI_NTP.json"
+	  },
+	  {
+		"id": "Sketch_09.1_Touch",
+		"name": "Sketch_09.1_Touch",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_09.1_Touch/Sketch_09.1_Touch.json"
+	  },
+	  {
+		"id": "Sketch_10.1_TFT_Test",
+		"name": "Sketch_10.1_TFT_Test",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_10.1_TFT_Test/Sketch_10.1_TFT_Test.json"
+	  },
+	  {
+		"id": "Sketch_11.1_TFT_Picture",
+		"name": "Sketch_11.1_TFT_Picture",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_11.1_TFT_Picture/Sketch_11.1_TFT_Picture.json"
+	  },
+	  {
+		"id": "Sketch_12.1_TFT_WIFI_Clock",
+		"name": "Sketch_12.1_TFT_WIFI_Clock",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_12.1_TFT_WIFI_Clock/Sketch_12.1_TFT_WIFI_Clock.json"
+	  },
+	  {
+		"id": "Sketch_13.1_LVGL",
+		"name": "Sketch_13.1_LVGL",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_13.1_LVGL/Sketch_13.1_LVGL.json"
+	  },
+	  {
+		"id": "Sketch_14.1_LVGL_Picture",
+		"name": "Sketch_14.1_LVGL_Picture",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_14.1_LVGL_Picture/Sketch_14.1_LVGL_Picture.json"
+	  },
+	  {
+		"id": "Sketch_15.1_LVGL_DigitalPhotoFrame",
+		"name": "Sketch_15.1_LVGL_DigitalPhotoFrame",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_15.1_LVGL_DigitalPhotoFrame/Sketch_15.1_LVGL_DigitalPhotoFrame.json"
+	  },
+	  {
+		"id": "Sketch_17.1_LVGL_Touch",
+		"name": "Sketch_17.1_LVGL_Touch",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_17.1_LVGL_Touch/Sketch_17.1_LVGL_Touch.json"
+	  },
+	  {
+		"id": "Sketch_18.1_LVGL_Draw",
+		"name": "Sketch_18.1_LVGL_Draw",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_18.1_LVGL_Draw/Sketch_18.1_LVGL_Draw.json"
+	  },
+	  {
+		"id": "Sketch_19.1_LVGL_Timer",
+		"name": "Sketch_19.1_LVGL_Timer",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_19.1_LVGL_Timer/Sketch_19.1_LVGL_Timer.json"
+	  },
+	  {
+		"id": "Sketch_20.1_LVGL_Flappy_Bird",
+		"name": "Sketch_20.1_LVGL_Flappy_Bird",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_20.1_LVGL_Flappy_Bird/Sketch_20.1_LVGL_Flappy_Bird.json"
+	  },
+	  {
+		"id": "Sketch_21.1_LVGL_Calculator",
+		"name": "Sketch_21.1_LVGL_Calculator",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_21.1_LVGL_Calculator/Sketch_21.1_LVGL_Calculator.json"
+	  },
+	  {
+		"id": "Sketch_22.1_LVGL_Multifunctionality",
+		"name": "Sketch_22.1_LVGL_Multifunctionality",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_22.1_LVGL_Multifunctionality/Sketch_22.1_LVGL_Multifunctionality.json"
+	  },
+	  {
+		"id": "Sketch_23.1_LVGL_Arduino",
+		"name": "Sketch_23.1_LVGL_Arduino",
+		"manifest_path": "firmware/FNK0115/FNK0115Q/Sketch/Sketch_23.1_LVGL_Arduino/Sketch_23.1_LVGL_Arduino.json"
+	  }
+	]
+	}
+  ]
+}
