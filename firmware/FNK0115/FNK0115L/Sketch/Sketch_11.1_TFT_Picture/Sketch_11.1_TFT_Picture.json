@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_11.1_TFT_Picture",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_11.1_TFT_Picture.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -62,6 +62,13 @@
       "name": "FNK0114",
       "image": "firmware/FNK0114/FNK0114.png",
       "config_path": "firmware/FNK0114/config.json"
+    },
+	{
+      "id": "FNK0115",
+      "chip": "ESP32-S3",
+      "name": "FNK0115",
+      "image": "firmware/FNK0115/FNK0115.png",
+      "config_path": "firmware/FNK0115/config.json"
     }
   ]
 }

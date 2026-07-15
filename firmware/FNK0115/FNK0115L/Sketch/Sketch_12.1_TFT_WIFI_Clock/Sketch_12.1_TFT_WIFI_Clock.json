@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_12.1_TFT_WIFI_Clock",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_12.1_TFT_WIFI_Clock.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_20.1_LVGL_Flappy_Bird",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_20.1_LVGL_Flappy_Bird.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_21.1_LVGL_Calculator",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_21.1_LVGL_Calculator.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
