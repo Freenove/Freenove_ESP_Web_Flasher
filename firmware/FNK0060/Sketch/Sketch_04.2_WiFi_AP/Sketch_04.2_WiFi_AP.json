@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_04.2_WiFi_AP",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_04.2_WiFi_AP.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -3,21 +3,36 @@
   "chip": "ESP32",
   "name": "FNK0090",
   "firmwares": [
-    {
-      "id": "FNK0090_Sketch",
+	{
+      "id": "FNK0060_Sketch",
       "name": "Sketch",
       "versions": [
-        {
-          "id": "Sketch_01.1_Blink",
-          "name": "Sketch_01.1_Blink",
-          "manifest_path": "firmware/FNK0090/Sketch/Sketch_01.1_Blink/Sketch_01.1_Blink.json"
-        },
-        {
-          "id": "Sketch_02.1_WS2812",
-          "name": "Sketch_02.1_WS2812",
-          "manifest_path": "firmware/FNK0090/Sketch/Sketch_02.1_WS2812/Sketch_02.1_WS2812.json"
-        }
-      ]
-    }
+		{
+		  "id": "Sketch_01.1_Blink",
+		  "name": "Sketch_01.1_Blink",
+		  "manifest_path": "firmware/FNK0090/Sketch/Sketch_01.1_Blink/Sketch_01.1_Blink.json"
+		},
+		{
+		  "id": "Sketch_02.1_WS2812",
+		  "name": "Sketch_02.1_WS2812",
+		  "manifest_path": "firmware/FNK0090/Sketch/Sketch_02.1_WS2812/Sketch_02.1_WS2812.json"
+		},
+		{
+		  "id": "Sketch_03.1_SerialToSerialBT",
+		  "name": "Sketch_03.1_SerialToSerialBT",
+		  "manifest_path": "firmware/FNK0090/Sketch/Sketch_03.1_SerialToSerialBT/Sketch_03.1_SerialToSerialBT.json"
+		},
+		{
+		  "id": "Sketch_03.2_BLE_USART",
+		  "name": "Sketch_03.2_BLE_USART",
+		  "manifest_path": "firmware/FNK0090/Sketch/Sketch_03.2_BLE_USART/Sketch_03.2_BLE_USART.json"
+		},
+		{
+		  "id": "Sketch_04.2_WiFi_AP",
+		  "name": "Sketch_04.2_WiFi_AP",
+		  "manifest_path": "firmware/FNK0090/Sketch/Sketch_04.2_WiFi_AP/Sketch_04.2_WiFi_AP.json"
+		}
+	  ]
+	}
   ]
 }

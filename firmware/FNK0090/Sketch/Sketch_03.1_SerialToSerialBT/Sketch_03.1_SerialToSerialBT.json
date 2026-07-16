@@ -1,12 +1,12 @@
 {
-  "version": "Sketch_6.1_CameraWebServer",
+  "version": "Sketch_03.1_SerialToSerialBT",
   "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "Sketch_6.1_CameraWebServer.bin",
+          "path": "Sketch_03.1_SerialToSerialBT.bin",
           "offset": 0
         }
       ]
