@@ -1,0 +1,15 @@
+{
+  "version": "05.1_IR_Receiver",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "05.1_IR_Receiver.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

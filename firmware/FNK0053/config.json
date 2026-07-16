@@ -1,0 +1,93 @@
+{
+  "id": "FNK0053",
+  "chip": "ESP32",
+  "name": "FNK0053",
+  "firmwares": [
+    {
+      "id": "FNK0053_Sketch",
+      "name": "Sketch",
+      "versions": [
+		  {
+			"id": "00.0_Servo_90",
+			"name": "00.0_Servo_90",
+			"manifest_path": "firmware/FNK0053/Sketch/00.0_Servo_90/00.0_Servo_90.json"
+		  },
+		  {
+			"id": "01.1_Car_Move_and_Turn",
+			"name": "01.1_Car_Move_and_Turn",
+			"manifest_path": "firmware/FNK0053/Sketch/01.1_Car_Move_and_Turn/01.1_Car_Move_and_Turn.json"
+		  },
+		  {
+			"id": "01.2_Servo",
+			"name": "01.2_Servo",
+			"manifest_path": "firmware/FNK0053/Sketch/01.2_Servo/01.2_Servo.json"
+		  },
+		  {
+			"id": "01.3_Buzzer",
+			"name": "01.3_Buzzer",
+			"manifest_path": "firmware/FNK0053/Sketch/01.3_Buzzer/01.3_Buzzer.json"
+		  },
+		  {
+			"id": "01.4_Battery_level",
+			"name": "01.4_Battery_level",
+			"manifest_path": "firmware/FNK0053/Sketch/01.4_Battery_level/01.4_Battery_level.json"
+		  },
+		  {
+			"id": "01.5_Matrix",
+			"name": "01.5_Matrix",
+			"manifest_path": "firmware/FNK0053/Sketch/01.5_Matrix/01.5_Matrix.json"
+		  },
+		  {
+			"id": "01.6_WS2812",
+			"name": "01.6_WS2812",
+			"manifest_path": "firmware/FNK0053/Sketch/01.6_WS2812/01.6_WS2812.json"
+		  },
+		  {
+			"id": "02.1_Ultrasonic_Ranging",
+			"name": "02.1_Ultrasonic_Ranging",
+			"manifest_path": "firmware/FNK0053/Sketch/02.1_Ultrasonic_Ranging/02.1_Ultrasonic_Ranging.json"
+		  },
+		  {
+			"id": "02.2_Ultrasonic_Ranging_Car",
+			"name": "02.2_Ultrasonic_Ranging_Car",
+			"manifest_path": "firmware/FNK0053/Sketch/02.2_Ultrasonic_Ranging_Car/02.2_Ultrasonic_Ranging_Car.json"
+		  },
+		  {
+			"id": "03.1_Photosensitive",
+			"name": "03.1_Photosensitive",
+			"manifest_path": "firmware/FNK0053/Sketch/03.1_Photosensitive/03.1_Photosensitive.json"
+		  },
+		  {
+			"id": "03.2_Photosensitive_Car",
+			"name": "03.2_Photosensitive_Car",
+			"manifest_path": "firmware/FNK0053/Sketch/03.2_Photosensitive_Car/03.2_Photosensitive_Car.json"
+		  },
+		  {
+			"id": "04.1_Tracking_Sensor",
+			"name": "04.1_Tracking_Sensor",
+			"manifest_path": "firmware/FNK0053/Sketch/04.1_Tracking_Sensor/04.1_Tracking_Sensor.json"
+		  },
+		  {
+			"id": "04.2_Track_Car",
+			"name": "04.2_Track_Car",
+			"manifest_path": "firmware/FNK0053/Sketch/04.2_Track_Car/04.2_Track_Car.json"
+		  },
+		  {
+			"id": "05.1_IR_Receiver",
+			"name": "05.1_IR_Receiver",
+			"manifest_path": "firmware/FNK0053/Sketch/05.1_IR_Receiver/05.1_IR_Receiver.json"
+		  },
+		  {
+			"id": "05.2_IR_Receiver_Car",
+			"name": "05.2_IR_Receiver_Car",
+			"manifest_path": "firmware/FNK0053/Sketch/05.2_IR_Receiver_Car/05.2_IR_Receiver_Car.json"
+		  },
+		  {
+			"id": "05.3_Multi_Functional_Car",
+			"name": "05.3_Multi_Functional_Car",
+			"manifest_path": "firmware/FNK0053/Sketch/05.3_Multi_Functional_Car/05.3_Multi_Functional_Car.json"
+		  }
+		]
+	}
+  ]
+}

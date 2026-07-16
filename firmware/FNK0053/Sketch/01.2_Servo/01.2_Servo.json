@@ -1,0 +1,15 @@
+{
+  "version": "01.2_Servo",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "01.2_Servo.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "04.2_Track_Car",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "04.2_Track_Car.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

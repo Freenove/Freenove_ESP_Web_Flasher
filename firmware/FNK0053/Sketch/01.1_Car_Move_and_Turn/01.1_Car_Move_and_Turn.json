@@ -1,0 +1,15 @@
+{
+  "version": "01.1_Car_Move_and_Turn",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "01.1_Car_Move_and_Turn.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

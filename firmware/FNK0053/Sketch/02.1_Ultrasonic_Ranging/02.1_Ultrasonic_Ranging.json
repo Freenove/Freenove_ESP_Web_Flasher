@@ -1,0 +1,15 @@
+{
+  "version": "02.1_Ultrasonic_Ranging",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "02.1_Ultrasonic_Ranging.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

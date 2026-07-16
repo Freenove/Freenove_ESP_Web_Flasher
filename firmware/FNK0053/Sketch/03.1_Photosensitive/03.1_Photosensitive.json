@@ -1,0 +1,15 @@
+{
+  "version": "03.1_Photosensitive",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "03.1_Photosensitive.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

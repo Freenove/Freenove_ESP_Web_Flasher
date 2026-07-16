@@ -1,0 +1,15 @@
+{
+  "version": "01.4_Battery_level",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "01.4_Battery_level.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

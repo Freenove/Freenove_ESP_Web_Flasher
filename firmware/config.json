@@ -1,6 +1,13 @@
 {
   "devices": [
 	{
+      "id": "FNK0053",
+      "chip": "ESP32",
+      "name": "FNK0053",
+      "image": "firmware/FNK0053/FNK0053.png",
+      "config_path": "firmware/FNK0053/config.json"
+    },
+	{
       "id": "FNK0060",
       "chip": "ESP32",
       "name": "FNK0060",

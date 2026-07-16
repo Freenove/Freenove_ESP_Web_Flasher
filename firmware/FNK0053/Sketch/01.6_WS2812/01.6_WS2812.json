@@ -1,0 +1,15 @@
+{
+  "version": "01.6_WS2812",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "01.6_WS2812.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

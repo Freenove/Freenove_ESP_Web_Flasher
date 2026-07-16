@@ -1,0 +1,15 @@
+{
+  "version": "01.5_Matrix",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "01.5_Matrix.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

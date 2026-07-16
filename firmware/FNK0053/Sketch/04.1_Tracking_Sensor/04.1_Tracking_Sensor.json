@@ -1,0 +1,15 @@
+{
+  "version": "04.1_Tracking_Sensor",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "04.1_Tracking_Sensor.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

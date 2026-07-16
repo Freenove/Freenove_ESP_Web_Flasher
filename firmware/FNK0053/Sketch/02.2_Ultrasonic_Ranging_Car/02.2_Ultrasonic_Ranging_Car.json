@@ -1,0 +1,15 @@
+{
+  "version": "02.2_Ultrasonic_Ranging_Car",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "02.2_Ultrasonic_Ranging_Car.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

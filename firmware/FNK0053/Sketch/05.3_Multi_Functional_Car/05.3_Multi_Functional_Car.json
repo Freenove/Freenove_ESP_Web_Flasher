@@ -1,0 +1,15 @@
+{
+  "version": "05.3_Multi_Functional_Car",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "05.3_Multi_Functional_Car.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

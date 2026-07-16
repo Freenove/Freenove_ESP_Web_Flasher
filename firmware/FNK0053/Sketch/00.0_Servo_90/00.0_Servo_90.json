@@ -1,0 +1,15 @@
+{
+  "version": "00.0_Servo_90",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "00.0_Servo_90.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
