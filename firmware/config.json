@@ -14,6 +14,20 @@
       "image": "firmware/FNK0060/FNK0060.png",
       "config_path": "firmware/FNK0060/config.json"
     },
+	{
+      "id": "FNK0085",
+      "chip": "ESP32-S3",
+      "name": "FNK0085",
+      "image": "firmware/FNK0085/FNK0085.png",
+      "config_path": "firmware/FNK0085/config.json"
+    },
+	{
+      "id": "FNK0086",
+      "chip": "ESP32-S3",
+      "name": "FNK0086",
+      "image": "firmware/FNK0086/FNK0086.png",
+      "config_path": "firmware/FNK0086/config.json"
+    },
     {
       "id": "FNK0090",
       "chip": "ESP32",
@@ -22,11 +36,11 @@
       "config_path": "firmware/FNK0090/config.json"
     },
 	{
-      "id": "FNK0086",
+      "id": "FNK0099",
       "chip": "ESP32-S3",
-      "name": "FNK0086",
-      "image": "firmware/FNK0086/FNK0086.png",
-      "config_path": "firmware/FNK0086/config.json"
+      "name": "FNK0099",
+      "image": "firmware/FNK0099/FNK0099.png",
+      "config_path": "firmware/FNK0099/config.json"
     },
     {
       "id": "FNK0102A",

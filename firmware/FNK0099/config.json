@@ -1,0 +1,53 @@
+{
+  "id": "FNK0099",
+  "chip": "ESP32",
+  "name": "FNK0099",
+  "firmwares": [
+	{
+      "id": "FNK0090_Sketch",
+      "name": "Sketch",
+      "versions": [
+		  {
+			"id": "Sketch_01.1_Blink",
+			"name": "Sketch_01.1_Blink",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_01.1_Blink/Sketch_01.1_Blink.json"
+		  },
+		  {
+			"id": "Sketch_02.1_LEDPixel",
+			"name": "Sketch_02.1_LEDPixel",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_02.1_LEDPixel/Sketch_02.1_LEDPixel.json"
+		  },
+		  {
+			"id": "Sketch_03.1_SerialPrinter",
+			"name": "Sketch_03.1_SerialPrinter",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_03.1_SerialPrinter/Sketch_03.1_SerialPrinter.json"
+		  },
+		  {
+			"id": "Sketch_03.2_SerialRW",
+			"name": "Sketch_03.2_SerialRW",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_03.2_SerialRW/Sketch_03.2_SerialRW.json"
+		  },
+		  {
+			"id": "Sketch_04.1_BLE_USART",
+			"name": "Sketch_04.1_BLE_USART",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_04.1_BLE_USART/Sketch_04.1_BLE_USART.json"
+		  },
+		  {
+			"id": "Sketch_04.2_BLE_Led",
+			"name": "Sketch_04.2_BLE_Led",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_04.2_BLE_Led/Sketch_04.2_BLE_Led.json"
+		  },
+		  {
+			"id": "Sketch_05.2_WiFi_AP",
+			"name": "Sketch_05.2_WiFi_AP",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_05.2_WiFi_AP/Sketch_05.2_WiFi_AP.json"
+		  },
+		  {
+			"id": "Sketch_07.1_USBSerial",
+			"name": "Sketch_07.1_USBSerial",
+			"manifest_path": "firmware/FNK0099/Sketch/Sketch_07.1_USBSerial/Sketch_07.1_USBSerial.json"
+		  }
+	  ]
+	}
+  ]
+}
