@@ -69,6 +69,11 @@
           "name": "Sketch_07.1_Music",
           "manifest_path": "firmware/FNK0104AB/Sketch/Sketch_07.1_Music/Sketch_07.1_Music.json"
         },
+		{
+          "id": "Sketch_07.2_Echo",
+          "name": "Sketch_07.2_Echo",
+          "manifest_path": "firmware/FNK0104AB/Sketch/Sketch_07.2_Echo/Sketch_07.2_Echo.json"
+        },
         {
           "id": "Sketch_08.1_BLE_USART",
           "name": "Sketch_08.1_BLE_USART",
