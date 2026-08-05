@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_06.1_CameraWebServer",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Sketch_06.1_CameraWebServer.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -36,6 +36,11 @@
 			"id": "Sketch_05.2_WiFi_AP",
 			"name": "Sketch_05.2_WiFi_AP",
 			"manifest_path": "firmware/FNK0085/Sketch/Sketch_05.2_WiFi_AP/Sketch_05.2_WiFi_AP.json"
+		},	
+		{	
+			"id": "Sketch_06.1_CameraWebServer",
+			"name": "Sketch_06.1_CameraWebServer",
+			"manifest_path": "firmware/FNK0085/Sketch/Sketch_06.1_CameraWebServer/Sketch_06.1_CameraWebServer.json"
 		}
       ]
     }
