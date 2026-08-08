@@ -1,0 +1,15 @@
+{
+  "version": "Sketch_12.1_LVGL_Weather_Clock",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Sketch_12.1_LVGL_Weather_Clock.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

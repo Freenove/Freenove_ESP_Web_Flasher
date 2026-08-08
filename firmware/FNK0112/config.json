@@ -97,6 +97,11 @@
           "id": "Sketch_11.1_LVGL_Game",
           "name": "Sketch_11.1_LVGL_Game",
           "manifest_path": "firmware/FNK0112/Sketch/Sketch_11.1_LVGL_Game/Sketch_11.1_LVGL_Game.json"
+        },
+        {
+          "id": "Sketch_12.1_LVGL_Weather_Clock",
+          "name": "Sketch_12.1_LVGL_Weather_Clock",
+          "manifest_path": "firmware/FNK0112/Sketch/Sketch_12.1_LVGL_Weather_Clock/Sketch_12.1_LVGL_Weather_Clock.json"
         }
       ]
     }
