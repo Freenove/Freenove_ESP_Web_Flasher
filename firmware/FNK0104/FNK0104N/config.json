@@ -129,9 +129,9 @@
       "name": "xiaozhi-FNK0104N",
       "versions": [
         {
-          "id": "v2.0.5",
-          "name": "v2.0.5",
-          "manifest_path": "firmware/FNK0104N/xiaozhi/v2.0.5/v2.0.5.json"
+          "id": "v1.7.6",
+          "name": "v1.7.6",
+          "manifest_path": "firmware/FNK0104N/xiaozhi/v1.7.6/v1.7.6.json"
         }
       ]
     }
