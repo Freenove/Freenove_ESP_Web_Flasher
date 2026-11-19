@@ -1,0 +1,18 @@
+{
+  "id": "FNK0062",
+  "chip": "ESP32",
+  "name": "FNK0062",
+  "firmwares": [
+    {
+      "id": "FNK0062",
+      "name": "firmware",
+      "versions": [
+	    {
+		  "id": "latest",
+		  "name": "latest",
+		  "manifest_path": "firmware/FNK0062/firmware/firmware.json"
+	    }
+      ]
+    }
+  ]
+}
